@@ -6,3 +6,6 @@ img/ERR-Diagram.png
 # For security do not publish the following files
 php/db.php
 sql/pixelplay.sql
+
+# Do not publish the following mysql workbench file
+sql/err-diagram.mwb
