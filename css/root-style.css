@@ -7,6 +7,18 @@
     --color-secondary: #fe9920;
     --color-tertiary: #ffda47;
 
+    /* Dark Theme */
+    --color-dark-400: #1a202c;
+    --color-dark-300: #2d3748;
+    --color-dark-200: #4a5568;
+    --color-dark-100: #718096;
+
+    /* Light Theme */
+    --color-light-100: #f3f4f6;
+    --color-light-200: #e2e8f0;
+    --color-light-300: #cbd5e0;
+    --color-light-400: #a0aec0;
+
     /* Alert, Warning, Information, Success, Danger colors*/
     --color-alert: #f6e05e;
     --color-warning: #f6ad55;
@@ -123,7 +135,7 @@
     --select-letter-spacing: 0;
     --select-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --select-transition: all 0.3s ease-in-out;
-    
+
     /* Textarea */
     --textarea-padding: 0.5rem 1rem;
     --textarea-border-radius: 0.25rem;
