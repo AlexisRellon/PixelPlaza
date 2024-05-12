@@ -1,3 +1,7 @@
+@charset "UTF-8";
+@import url('../css/satoshi.css');
+@import url('../css/root-style.css');
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -13,8 +17,12 @@ html {
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: #f3f4f6;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    color: var(--text-color-light);
+    background-color: var(--background-color-light);
     min-height: 100vh;
 }
 
@@ -22,4 +30,75 @@ img, video, svg, canvas, audio, iframe, embed, object {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+    color: var(--text-color-heading);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+blockquote {
+    margin: 0;
+    padding: 1rem;
+    border-left: 0.25rem solid var(--text-color-light);
+    background-color: var(--background-color-light);
+}
+
+pre {
+    margin: 0;
+    padding: 1rem;
+    overflow-x: auto;
+    background-color: var(--background-color-light);
 }

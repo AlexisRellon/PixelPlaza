@@ -1,0 +1,183 @@
+:root {
+    /* Color scheme */
+    --color-scheme: dark light;
+
+    /* Primary, Secondary, Tertiary colors */
+    --color-primary: #FA7921;
+    --color-secondary: #fe9920;
+    --color-tertiary: #ffda47;
+
+    /* Alert, Warning, Information, Success, Danger colors*/
+    --color-alert: #f6e05e;
+    --color-warning: #f6ad55;
+    --color-information: #3490dc;
+    --color-success: #38c172;
+    --color-danger: #e3342f;
+
+    /* Background */
+    --background-color-light: #f3f4f6;
+    --background-color-dark: #1a202c;
+
+    /* Font */
+    --font-size: 1rem;
+    --font-weight: 400;
+    --line-height: 1.5;
+    --letter-spacing: 0;
+    --font-family: 'Satoshi-Variable', sans-serif;
+    --heading-height: 1.2;
+
+    /* Text */
+    --text-color-light: #1a202c;
+    --text-color-dark: #f3f4f6;
+
+    /* Border */
+    --border-color-light: #e2e8f0;
+    --border-color-dark: #2d3748;
+
+    /* Shadow */
+    --shadow-color-light: rgba(0, 0, 0, 0.1);
+    --shadow-color-dark: rgba(0, 0, 0, 0.5);
+
+    /* View port */
+    --viewport-width: 100%;
+    --viewport-height: 100vh;
+
+    /* Spacing */
+    --spacing: 1rem;
+    --spacing-half: 0.5rem;
+    --spacing-double: 2rem;
+    --spacing-triple: 3rem;
+    --spacing-quadruple: 4rem;
+    --spacing-quintuple: 5rem;
+    --spacing-sextuple: 6rem;
+    --spacing-septuple: 7rem;
+    --spacing-octuple: 8rem;
+    --spacing-nonuple: 9rem;
+    --spacing-decuple: 10rem;
+
+    /* Z-index */
+    --z-index-0: 0;
+    --z-index-1: 1;
+    --z-index-2: 2;
+    --z-index-3: 3;
+    --z-index-4: 4;
+    --z-index-5: 5;
+    --z-index-6: 6;
+    --z-index-7: 7;
+    --z-index-8: 8;
+    --z-index-9: 9;
+    --z-index-10: 10;
+
+    /* Transition */
+    --transition: all 0.3s ease-in-out;
+
+    /* Breakpoints */
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
+
+    /* Grid */
+    --grid-columns: 12;
+    --grid-gutter: 1rem;
+    --grid-max-width: 1140px;
+
+    /* Buttons */
+    --button-padding: 0.5rem 1rem;
+    --button-border-radius: 0.25rem;
+    --button-font-size: 1rem;
+    --button-font-weight: 400;
+    --button-line-height: 1.5;
+    --button-letter-spacing: 0;
+    --button-text-transform: none;
+    --button-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --button-transition: all 0.3s ease-in-out;
+
+    /* Form */
+    --form-padding: 1rem;
+    --form-border-radius: 0.25rem;
+    --form-font-size: 1rem;
+    --form-font-weight: 400;
+    --form-line-height: 1.5;
+    --form-letter-spacing: 0;
+    --form-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --form-transition: all 0.3s ease-in-out;
+
+    /* Input */
+    --input-padding: 0.5rem 1rem;
+    --input-border-radius: 0.25rem;
+    --input-font-size: 1rem;
+    --input-font-weight: 400;
+    --input-line-height: 1.5;
+    --input-letter-spacing: 0;
+    --input-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --input-transition: all 0.3s ease-in-out;
+
+    /* Select */
+    --select-padding: 0.5rem 1rem;
+    --select-border-radius: 0.25rem;
+    --select-font-size: 1rem;
+    --select-font-weight: 400;
+    --select-line-height: 1.5;
+    --select-letter-spacing: 0;
+    --select-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --select-transition: all 0.3s ease-in-out;
+    
+    /* Textarea */
+    --textarea-padding: 0.5rem 1rem;
+    --textarea-border-radius: 0.25rem;
+    --textarea-font-size: 1rem;
+    --textarea-font-weight: 400;
+    --textarea-line-height: 1.5;
+    --textarea-letter-spacing: 0;
+    --textarea-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --textarea-transition: all 0.3s ease-in-out;
+
+    /* Table */
+    --table-padding: 1rem;
+    --table-border-radius: 0.25rem;
+    --table-font-size: 1rem;
+    --table-font-weight: 400;
+    --table-line-height: 1.5;
+    --table-letter-spacing: 0;
+    --table-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --table-transition: all 0.3s ease-in-out;
+
+    /* Scrollbar */
+    --scrollbar-width: 10px;
+    --scrollbar-color: #e2e8f0;
+    --scrollbar-thumb-color: #cbd5e0;
+    --scrollbar-thumb-hover-color: #a0aec0;
+
+    /* Modal */
+    --modal-padding: 1rem;
+    --modal-border-radius: 0.25rem;
+    --modal-font-size: 1rem;
+    --modal-font-weight: 400;
+    --modal-line-height: 1.5;
+    --modal-letter-spacing: 0;
+    --modal-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --modal-transition: all 0.3s ease-in-out;
+
+    /* Alert */
+    --alert-padding: 1rem;
+    --alert-border-radius: 0.25rem;
+    --alert-font-size: 1rem;
+    --alert-font-weight: 400;
+    --alert-line-height: 1.5;
+    --alert-letter-spacing: 0;
+    --alert-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --alert-transition: all 0.3s ease-in-out;
+
+    /* Badge */
+    --badge-padding: 0.5rem 1rem;
+    --badge-border-radius: 0.25rem;
+    --badge-font-size: 1rem;
+    --badge-font-weight: 400;
+    --badge-line-height: 1.5;
+    --badge-letter-spacing: 0;
+    --badge-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --badge-transition: all 0.3s ease-in-out;
+
+}
