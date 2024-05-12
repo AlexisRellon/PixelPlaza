@@ -24,20 +24,12 @@
     <link rel="shortcut icon" href="../img/brand-logo-white.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
 
 
 </head>
 <body>
     <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, optio eius. Quas, quidem? Necessitatibus quia, sed iste beatae ipsum aliquid quidem placeat hic modi laudantium maiores autem laborum ipsam accusantium?</h1>
-
-    <fieldset>
-        <input type="text" name="" id="" placeholder="Search">
-        <button type="submit">
-            <span class="material-icons">home</span>
-        </button>
-    </fieldset>
 </body>
 
 </html>
