@@ -30,6 +30,12 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit.</blockquote>
     <pre>Lorem ipsum dolor sit amet consectetur adipisicing elit.</pre>
+
+    <br>
+
+    <span class="material-icons">home</span>
+    <span class="material-icons-outlined">home</span>
+    <span class="material-icons-round">home</span>
 </body>
 
 </html>
