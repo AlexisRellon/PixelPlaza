@@ -7,6 +7,7 @@ img/ERR-Diagram.png
 php/db.php
 sql/pixelplay.sql
 .php_tmp
+PixelPlaza_Workspace.code-workspace
 
 # Do not publish the following mysql workbench file
 sql/err-diagram.mwb
