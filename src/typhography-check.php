@@ -13,7 +13,10 @@
     <meta name="language" content="English">
     
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/utility.min.css">
+
     <link rel="shortcut icon" href="../img/brand-logo-white.png" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
