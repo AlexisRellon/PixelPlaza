@@ -10,7 +10,7 @@ CREATE TABLE `Products` (
     `CategoryID` INT, -- Category ID
     `BrandID` INT, -- Brand ID
 
-    FOREIGN KEY (`CategoryID`) REFERENCES `Categories` (`CategoryID`) ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (`CategoryID`) REFERENCES `Categories` (`CategoryID`) ON DELETE RESTRICT ON UPDATE CASCADE  ,
     FOREIGN KEY (`BrandID`) REFERENCES `Brands` (`BrandID`) ON DELETE RESTRICT ON UPDATE CASCADE,
     INDEX (`CategoryID`),
     INDEX (`BrandID`)
