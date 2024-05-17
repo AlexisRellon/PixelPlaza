@@ -24,6 +24,7 @@ body {
     color: var(--text-color-light);
     background-color: var(--background-color-light);
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 img, video, svg, canvas, audio, iframe, embed, object {
@@ -58,7 +59,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading);
     letter-spacing: var(--letter-spacing-heading);
-    color: var(--text-color-heading);
 }
 
 h1 {
@@ -101,4 +101,26 @@ pre {
     padding: 1rem;
     overflow-x: auto;
     background-color: var(--background-color-light);
+}
+
+code {
+    font-family: var(--font-family-monospace);
+    font-size: 0.875rem;
+    color: var(--text-color-light);
+}
+
+.bg-color-light {
+    background-color: var(--background-color-light);
+}
+
+.bg-color-dark {
+    background-color: var(--background-color-dark);
+}
+
+.color-white {
+    color: var(--text-color-dark);
+}
+
+.color-black {
+    color: var(--text-color-light);
 }
