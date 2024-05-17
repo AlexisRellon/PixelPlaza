@@ -1,0 +1,32 @@
+.search-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid rgba(0, 0, 0, 0);
+    height: 40%;
+    padding: 0 0.5rem;
+    display: none;
+}
+
+.logo {
+    width: 50px;
+    max-width: 55px;
+}
+
+.search-bar {
+    border: 0px solid rgba(0, 0, 0, 0);
+    font-weight: 700;
+    width: 15rem;
+    transition: all 0.3s ease-in-out;
+    padding: 0 1rem;
+    height: 85%;
+}
+
+.search-bar:focus {
+    width: 35rem;
+    transition: all 0.3s ease-in-out;
+
+    & + .search-btn {
+        display: block;
+        color: var(--text-color-light);
+        transform: translateX(-4rem);
+    }
+}
