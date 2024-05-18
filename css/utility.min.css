@@ -7,6 +7,10 @@
     margin: 0.25rem;
 }
 
+.m-3 {
+    margin: 0.75rem;
+}
+
 .m-5 {
     margin: 1.25rem;
 }
@@ -30,6 +34,10 @@
 
 .p-1 {
     padding: 0.25rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
 }
 
 .p-5 {
@@ -148,6 +156,43 @@
 
 .h-auto {
     height: auto;
+}
+
+/* Font Weight */
+.font-thin {
+    font-weight: 100;
+}
+
+.font-extralight {
+    font-weight: 200;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+.font-black {
+    font-weight: 900;
 }
 
 /* display */
