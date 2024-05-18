@@ -2,7 +2,9 @@
 @import url('../css/satoshi.css');
 @import url('../css/root-style.css');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -10,6 +12,7 @@
     margin: 0;
     padding: 0;
     font: inherit;
+    scroll-behavior: smooth;
 }
 
 html {
@@ -27,7 +30,14 @@ body {
     scroll-behavior: smooth;
 }
 
-img, video, svg, canvas, audio, iframe, embed, object {
+img,
+video,
+svg,
+canvas,
+audio,
+iframe,
+embed,
+object {
     display: block;
     max-width: 100%;
     height: auto;
@@ -38,7 +48,8 @@ a {
     color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -46,7 +57,9 @@ button {
     cursor: pointer;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -55,7 +68,12 @@ input, textarea, select {
     color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading);
     letter-spacing: var(--letter-spacing-heading);
@@ -123,4 +141,35 @@ code {
 
 .color-black {
     color: var(--text-color-light);
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+    height: 9px;
+    width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #1D1E22;
+}
+
+*::-webkit-scrollbar-track:hover {
+    background-color: #1D1E22;
+}
+
+*::-webkit-scrollbar-track:active {
+    background-color: #1D1E22;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #666B7A;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #666B7A;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #666B7A;
 }
