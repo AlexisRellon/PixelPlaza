@@ -87,6 +87,7 @@
     display: block;
     opacity: 0;
     width: fit-content;
+    height: 0;
     position: absolute;
     transform: translateX(-32.5%);
     scale: 0.80;
@@ -94,12 +95,14 @@
     font-weight: 600;
     background-color: var(--color-black);
     z-index: 1;
-    animation: fadeOutDown 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .tooltip:hover::after {
+    opacity: 1;
+    height: auto;
     transform: translate(-32.5%);
-    animation: fadeInDown 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .container-fluid {
