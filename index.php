@@ -146,14 +146,14 @@
 
     <section class="container-fluid bg-white-200 second">
         <div class="flex justify-space-between">
-            <div class="flex flex-column flex-wrap gap-1">
+            <div class="flex flex-column flex-wrap gap-3">
                 <h3 class="color-black-500 text-uppercase font-extrabold" style="color: var(--color-primary);">
                     Need Help?
                 </h3>
                 <p class="m-0 w-33 font-medium text-justify color-black-500">
                     Need assistance or have questions? Contact our dedicated team for prompt and helpful support. We're here to ensure your satisfaction and provide a seamless experience.
                 </p>
-                <a href="" class="link font-bold" style="width: fit-content; padding: 1rem 0;">Contact Us</a>
+                <a href="" class="link font-bold" style="width: fit-content;">Contact Us</a>
             </div>
         </div>
     </section>
