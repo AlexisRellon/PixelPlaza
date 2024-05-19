@@ -6,6 +6,8 @@
     --color-primary: #FA7921;
     --color-secondary: #fe9920;
     --color-tertiary: #ffda47;
+    --color-black: #000;
+    --color-white: #fff;
 
     /* Dark Theme */
     --color-dark-400: #1a202c;
@@ -25,6 +27,11 @@
     --color-information: #3490dc;
     --color-success: #38c172;
     --color-danger: #e3342f;
+
+    /* Sale, New, Hot */
+    --color-sale: #16994d;
+    --color-new: #1f74b9;
+    --color-hot: #c13838;
 
     /* Background */
     --background-color-light: #f3f4f6;
