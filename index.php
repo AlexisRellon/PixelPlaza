@@ -246,7 +246,7 @@
                 <a href="#" class="link">Youtube</a>
             </div>
             <div class="copy-right">
-                <p>&copy; 2021 Pixel Plaza. All rights reserved.</p>
+                <p>&copy; 2024 Pixel Plaza. All rights reserved.</p>
             </div>
         </div>
     </footer>
