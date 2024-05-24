@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,11 +90,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path d="M240-160q-50 0-85-35t-35-85H40v-440q0-33 23.5-56.5T120-800h560v160h120l120 160v200h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85H360q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T280-280q0-17-11.5-28.5T240-320q-17 0-28.5 11.5T200-280q0 17 11.5 28.5T240-240ZM120-360h32q17-18 39-29t49-11q27 0 49 11t39 29h272v-360H120v360Zm600 120q17 0 28.5-11.5T760-280q0-17-11.5-28.5T720-320q-17 0-28.5 11.5T680-280q0 17 11.5 28.5T720-240Zm-40-200h170l-90-120h-80v120ZM360-540Z" />
                 </svg>
-                <div class="card p-3 flex flex-column self-start gap-1 grow">
-                    <div class="card-header">
-                        <h4>Shipping</h4>
+                <div class="item p-3 flex flex-column self-start gap-1 grow">
+                    <div class="item-header">
+                        <h4>Shipping Policy</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="item-body">
                         <p>Enjoy free and fast shipping on most areas.</p>
                     </div>
                     <a href="" class="link">Learn more</a>
@@ -103,11 +104,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style="transform: scaleX(-100%);">
                     <path d="M40-160v-80h200v-80H80v-80h160v-80H122v-80h118v-118l-78-168 72-34 94 200h464l-78-166 72-34 94 200v520H40Zm440-280h160q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H480q-17 0-28.5 11.5T440-480q0 17 11.5 28.5T480-440ZM320-240h480v-360H320v360Zm0 0v-360 360Z" />
                 </svg>
-                <div class="card p-3 flex flex-column self-start gap-1 grow">
-                    <div class="card-header">
+                <div class="item p-3 flex flex-column self-start gap-1 grow">
+                    <div class="item-header">
                         <h4>Return Policy</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="item-body">
                         <p>Return your purchase within 30 days for a full refund.</p>
                     </div>
                     <a href="" class="link">Learn more</a>
@@ -117,11 +118,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path d="M440-82q-76-8-141.5-41.5t-114-87Q136-264 108-333T80-480q0-91 36.5-168T216-780h-96v-80h240v240h-80v-109q-55 44-87.5 108.5T160-480q0 123 80.5 212.5T440-163v81Zm-17-214L254-466l56-56 113 113 227-227 56 57-283 283Zm177 196v-240h80v109q55-45 87.5-109T800-480q0-123-80.5-212.5T520-797v-81q152 15 256 128t104 270q0 91-36.5 168T744-180h96v80H600Z" />
                 </svg>
-                <div class="card p-3 flex flex-column self-start gap-1 grow">
-                    <div class="card-header">
+                <div class="item p-3 flex flex-column self-start gap-1 grow">
+                    <div class="item-header">
                         <h4>Replacement Policy</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="item-body">
                         <p>Enjoy a 30-day free replacement to all purchase.</p>
                     </div>
                     <a href="" class="link">Learn more</a>
@@ -131,11 +132,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path d="m438-338 226-226-57-57-169 169-84-84-57 57 141 141Zm42 258q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z" />
                 </svg>
-                <div class="card p-3 flex flex-column self-start gap-1 grow">
-                    <div class="card-header">
+                <div class="item p-3 flex flex-column self-start gap-1 grow">
+                    <div class="item-header">
                         <h4>1 Year Warranty</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="item-body">
                         <p>For all keyboards and Mouse purchased on the site.</p>
                     </div>
                     <a href="" class="link">Learn more</a>
@@ -145,18 +146,99 @@
     </section>
 
     <section class="container-fluid bg-white-200 second">
-        <div class="flex justify-space-between">
-            <div class="flex flex-column flex-wrap gap-3">
+        <div class="content flex justify-space-between gap-10">
+            <div class="item-lists-1 flex flex-column justify-space-between gap-3">
                 <h3 class="color-black-500 text-uppercase font-extrabold" style="color: var(--color-primary);">
                     Need Help?
                 </h3>
-                <p class="m-0 w-33 font-medium text-justify color-black-500">
+                <p class="m-0 font-medium text-justify color-black-500">
                     Need assistance or have questions? Contact our dedicated team for prompt and helpful support. We're here to ensure your satisfaction and provide a seamless experience.
                 </p>
                 <a href="" class="link font-bold" style="width: fit-content;">Contact Us</a>
             </div>
+            <div class="item-lists-2 flex flex-columns">
+                <div class="lists grid align-items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                    </svg>
+                    <div class="item p-3 flex flex-column self-start gap-1 grow">
+                        <div class="item-header">
+                            <h4>Email</h4>
+                        </div>
+                        <div class="item-body">
+                            <p>We strive to respond to your support request within 48 hours through email.</p>
+                        </div>
+                        <a href="" class="link">Learn more</a>
+                    </div>
+                </div>
+                <div class="lists grid align-items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path d="M320-520q17 0 28.5-11.5T360-560q0-17-11.5-28.5T320-600q-17 0-28.5 11.5T280-560q0 17 11.5 28.5T320-520Zm160 0q17 0 28.5-11.5T520-560q0-17-11.5-28.5T480-600q-17 0-28.5 11.5T440-560q0 17 11.5 28.5T480-520Zm160 0q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z" />
+                    </svg>
+                    <div class="item p-3 flex flex-column self-start gap-1 grow">
+                        <div class="item-header">
+                            <h4>Chat</h4>
+                        </div>
+                        <div class="item-body">
+                            <p>Contact us via chat for any inquiries or assistance you may need.</p>
+                        </div>
+                        <a href="" class="link">Learn more</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section class="container-fluid third">
+
+    </section>
+
+    <footer class="container-fluid bg-black-500 flex flex-column gap-15 footer">
+        <div class="footer-header color-white flex justify-space-between align-items-center gap-10">
+            <div class="flex justify-space-between">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.57 491.49" width="4rem">
+                    <path class="fill-white
+                    " d="M440,35V317.6c0,2.65-1.05,5.2-2.93,7.07l-92.41,92.4c-1.88,1.88-4.42,2.93-7.07,2.93H205c-8.28,0-15-6.72-15-15v-70c0-8.28,6.72-15,15-15h120c8.28,0,15-6.72,15-15V135c0-8.28-6.72-15-15-15H155c-8.28,0-15,6.72-15,15V405c0,8.28-6.72,15-15,15H55c-8.28,0-15-6.72-15-15V35c0-8.28,6.72-15,15-15H425c8.28,0,15,6.72,15,15Z" />
+                    <rect class="fill-white
+                    " x="210" y="190" width="60" height="60" />
+                </svg>
+            </div>
+            <div class="flex gap-10 align-end">
+                <div class="policy-links font-extrabold m-1 flex gap-10">
+                    <a href="#" class="link">Shipping Policy</a>
+                    <a href="#" class="link">Return Policy</a>
+                    <a href="#" class="link">Replacement Policy</a>
+                    <a href="#" class="link">Warranty</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-body color-white flex justify-space-between align-items-center">
+            <!-- Site map: division (Company, Products, Support) -->
+            <div class="site-map flex gap-50">
+                <div class="company flex flex-column gap-5">
+                    <h6 class="font-bold">Company</h6>
+                    <a href="#" class="link">About Us</a>
+                    <a href="#" class="link">Contact Us</a>
+                    <a href="#" class="link">Careers</a>
+                    <a href="#" class="link">Press</a>
+                </div>
+                <div class="products flex flex-column gap-5">
+                    <h6 class="font-bold">Products</h6>
+                    <a href="#" class="link">Keyboards</a>
+                    <a href="#" class="link">Mice</a>
+                    <a href="#" class="link">Headsets</a>
+                    <a href="#" class="link">Mousepads</a>
+                </div>
+                <div class="support flex flex-column gap-5">
+                    <h6 class="font-bold">Support</h6>
+                    <a href="#" class="link">FAQ</a>
+                    <a href="#" class="link">Shipping</a>
+                    <a href="#" class="link">Returns</a>
+                    <a href="#" class="link">Warranty</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
