@@ -238,6 +238,17 @@
                 </div>
             </div>
         </div>
+        <div class="footer-footer color-white flex justify-space-between align-items-center">
+            <div class="social-media flex gap-10">
+                <a href="#" class="link">Facebook</a>
+                <a href="#" class="link">Twitter</a>
+                <a href="#" class="link">Instagram</a>
+                <a href="#" class="link">Youtube</a>
+            </div>
+            <div class="copy-right">
+                <p>&copy; 2021 Pixel Plaza. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 
