@@ -190,7 +190,7 @@
     </section>
 
     <section class="container-fluid third">
-
+        
     </section>
 
     <footer class="container-fluid bg-black-500 flex flex-column gap-15 footer">
@@ -213,7 +213,6 @@
             </div>
         </div>
         <div class="footer-body color-white flex justify-space-between align-items-center">
-            <!-- Site map: division (Company, Products, Support) -->
             <div class="site-map flex gap-50">
                 <div class="company flex flex-column gap-5">
                     <h6 class="font-bold">Company</h6>
@@ -228,6 +227,15 @@
                     <a href="#" class="link">Mice</a>
                     <a href="#" class="link">Headsets</a>
                     <a href="#" class="link">Mousepads</a>
+                    <a href="#" class="link">Monitors</a>
+                </div>
+                <div class="online-store flex flex-column gap-5">
+                    <h6 class="font-bold">Online Stores</h6>
+                    <a href="#" class="link">Amazon</a>
+                    <a href="#" class="link">eBay</a>
+                    <a href="#" class="link">Best Buy</a>
+                    <a href="#" class="link">Walmart</a>
+                    <a href="#" class="link">Target</a>
                 </div>
                 <div class="support flex flex-column gap-5">
                     <h6 class="font-bold">Support</h6>
@@ -238,7 +246,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-footer color-white flex justify-space-between align-items-center">
+        <div class="footer-footer color-white flex justify-space-between ">
             <div class="social-media flex gap-10">
                 <a href="#" class="link">Facebook</a>
                 <a href="#" class="link">Twitter</a>
