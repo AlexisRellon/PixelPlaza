@@ -23,11 +23,11 @@ Pixel Plaza is an e-commerce platform specializing in computer peripherals, offe
 
 ## Getting Started
 
-To get started with TechGearHub, follow these steps:
+To get started with PixelPlaza, follow these steps:
 
 1. Clone the repository to your local machine:
 
-git clone https://github.com/your-username/techgearhub.git
+git clone https://github.com/your-username/PixelPlaza.git
 
 2. Import the provided SQL database file (`pixelplay.sql`) into your MySQL database management tool.
 
@@ -37,7 +37,7 @@ git clone https://github.com/your-username/techgearhub.git
 
 ## Contributing
 
-We welcome contributions from the community to improve and enhance TechGearHub. If you'd like to contribute, please follow these guidelines:
+We welcome contributions from the community to improve and enhance PixelPlaza. If you'd like to contribute, please follow these guidelines:
 
 1. Fork the repository and create a new branch for your feature or bug fix.
 2. Make your changes and ensure that they adhere to the project's coding standards.
