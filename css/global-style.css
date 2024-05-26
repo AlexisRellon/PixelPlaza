@@ -227,9 +227,168 @@
 
     .company .link::before,
     .products .link::before,
+    .online-store .link::before,
     .support .link::before {
         background-color: white;
         height: 2px;
+    }
+
+    .company .link:hover,
+    .products .link:hover,
+    .online-store .link:hover,
+    .support .link:hover {
+        color: var(--color-secondary);
+
+        &::before {
+            background-color: var(--color-secondary);
+            width: 100%;
+        }
+    }
+}
+
+.third {
+    padding: 2.5rem 10rem !important;
+
+    & .link {
+        max-width: fit-content;
+
+        &:hover {
+            color: var(--color-secondary);
+        }
+
+        &::before {
+            background-color: var(--color-secondary);
+            width: 0;
+        }
+        
+        &:hover::before {
+            width: 0;
+            left: 0;
+            background-color: var(--color-secondary);
+        } 
+
+        &:focus {
+            color: var(--color-secondary);
+        }
+
+        &:focus::before {
+            background-color: var(--color-secondary);
+            height: 3px;
+            width: 100%;
+        }   
+    }
+
+    & .products-card {
+        min-width: calc(100% - 2.5rem);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+
+        & .card {
+            min-width: 10rem;
+            min-height: 40rem;
+            mask-clip: content-box;
+            overflow: hidden;
+
+            &:hover {
+                box-shadow: var(--dropshadow-default);
+                mask-clip: content-box;
+                transform: scale(1);
+
+                .product-image,
+                .product-details,
+                .hover-toolbar {
+                    scale: 1;
+                }
+
+                .hover-toolbar {
+                    opacity: 1;
+                    transform: translateY(-150%);
+
+                    & .button:hover {
+                        background-color: var(--color-secondary);
+                    }
+                }
+            }
+            
+            & .product-image {
+                image-rendering: optimizeSpeed;
+                width: 1000%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            & .hover-toolbar {
+                opacity: 0;
+                position: absolute;
+                bottom: 30%;
+                min-height: 1;
+                transform: translateY(10%);
+                transition: all 0.3s ease-in-out;
+                box-shadow: var(--dropshadow-default);
+                z-index: 1;
+                
+                & .button {
+                    background-color:var(--color-white-400);
+                    padding: 1rem 1rem;
+                    cursor: pointer;
+
+                    &:first-child {
+                        border-radius: 0.3rem 0 0 0.3rem;
+                        border-right: 0.05px solid var(--color-white-100);
+                    }
+
+                    &:last-child {
+                        border-radius: 0 0.3rem 0.3rem 0;
+                        border-left: 0.05px solid var(--color-white-100);
+                    }
+
+                    svg {
+                        fill: var(--color-black-500);
+                        width: 16px;
+                    }
+                }
+            }
+
+            .product-details {
+                background-color: var(--color-light-100);
+                height: 56%;
+                padding: 0rem 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                z-index: 1;
+
+                .brand, 
+                .product, 
+                .price {
+                    margin: 0;
+                }
+
+                & .brand {
+                    color: #666;
+                    margin-top: 1.5rem;
+                }
+
+                
+            }
+        }
+    }
+
+    & .a-btn {
+        background-color: var(--color-primary);
+        padding: 1rem 1rem;
+        cursor: pointer;
+        border: 0;
+        color: var(--color-light-100);
+        font-weight: 700;
+        border-radius: 0.3rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: var(--color-secondary);
+            border: 2px solid var(--color-secondary);
+        }
+    
     }
 }
 
@@ -379,7 +538,7 @@
 
     .footer {
         padding: 1rem 1rem !important;
-        
+
         & .footer-header {
             justify-content: center;
             flex-direction: column;
@@ -458,7 +617,7 @@
         display: grid !important;
         grid-template-rows: repeat(3, minmax(0, 1fr));
         gap: 0 !important;
-        
+
         & .footer-header {
             justify-content: space-between;
             flex-direction: column;
@@ -468,7 +627,7 @@
         & .footer-body {
             justify-content: center;
             max-height: fit-content !important;
-            
+
 
             & .site-map {
                 gap: 4.6rem;
@@ -483,7 +642,7 @@
             gap: 3rem;
         }
     }
-    
+
 }
 
 /* Animations */
