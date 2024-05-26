@@ -258,6 +258,7 @@
             border-radius: 0.3rem;
             mask-clip: content-box;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 
             &:hover {
                 box-shadow: var(--dropshadow-default);
@@ -268,6 +269,7 @@
                     opacity: 1;
                     transform: translateY(-50%);
                     scale: .9;
+                    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 
                     & svg {
                         transform: scale(100%);
@@ -286,7 +288,7 @@
                             bottom: 100%;
                             background-color: var(--color-black-500);
                             transform: translateX(-50%) translateY(0rem);
-                            transition: all .4s cubic-bezier(.2, .6, .24, 1);
+                            transition: all .4s cubic-bezier(0.23, 1, 0.320, 1);
                             white-space: none;
                             padding: 0.5rem;
                             border-radius: 0.5em;
@@ -295,10 +297,12 @@
 
                         &:hover {
                             background-color: var(--color-secondary);
+                            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 
                             &::before {
                                 opacity: 1;
                                 transform: translateX(-50%) translateY(-.75rem);
+                                transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
                             }
                         }
                     }
