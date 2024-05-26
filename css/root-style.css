@@ -9,6 +9,20 @@
     --color-black: #000;
     --color-white: #fff;
 
+    /* Black shades */
+    --color-black-500: #000;
+    --color-black-400: #1a202c;
+    --color-black-300: #2d3748;
+    --color-black-200: #4a5568;
+    --color-black-100: #718096;
+
+    /* White shades */
+    --color-white-500: #fff;
+    --color-white-400: #f8f9fa;
+    --color-white-300: #e9ecef;
+    --color-white-200: #dee2e6;
+    --color-white-100: #ced4da;
+
     /* Dark Theme */
     --color-dark-400: #1a202c;
     --color-dark-300: #2d3748;
@@ -56,6 +70,9 @@
     /* Shadow */
     --shadow-color-light: rgba(0, 0, 0, 0.1);
     --shadow-color-dark: rgba(0, 0, 0, 0.5);
+
+    /* Dropshadow */
+    --dropshadow-default: 0 5px 15px 0 rgba(0, 0, 0, 0.07);
 
     /* View port */
     --viewport-width: 100%;
