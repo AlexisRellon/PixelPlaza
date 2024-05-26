@@ -224,6 +224,31 @@
     display: grid;
 }
 
+/* Justify Items */
+.justify-items-start {
+    justify-items: start;
+}
+
+.justify-items-end {
+    justify-items: end;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-items-stretch {
+    justify-items: stretch;
+}
+
+.justify-items-baseline {
+    justify-items: baseline;
+}
+
+.justify-self-auto {
+    justify-self: auto;
+}
+
 /* Gap */
 .gap-0 {
     gap: 0;
