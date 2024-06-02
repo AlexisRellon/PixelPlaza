@@ -23,18 +23,6 @@
     --color-white-200: #dee2e6;
     --color-white-100: #ced4da;
 
-    /* Dark Theme */
-    --color-dark-400: #1a202c;
-    --color-dark-300: #2d3748;
-    --color-dark-200: #4a5568;
-    --color-dark-100: #718096;
-
-    /* Light Theme */
-    --color-light-100: #f3f4f6;
-    --color-light-200: #e2e8f0;
-    --color-light-300: #cbd5e0;
-    --color-light-400: #a0aec0;
-
     /* Alert, Warning, Information, Success, Danger colors*/
     --color-alert: #f6e05e;
     --color-warning: #f6ad55;
@@ -48,7 +36,7 @@
     --color-hot: #c13838;
 
     /* Background */
-    --background-color-light: #f3f4f6;
+    --background-color-light: #fff;
     --background-color-dark: #1a202c;
 
     /* Font */
