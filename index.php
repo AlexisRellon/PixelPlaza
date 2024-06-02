@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="../css/global-style.css">
     <link rel="stylesheet" href="../css/utility.min.css">
 
+    <!-- link to google font material icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <link rel="shortcut icon" href="../img/brand-logo-white.png" type="image/x-icon">
     <link rel="icon" href="../img/brand-logo-white.png" type="image/x-icon">
 
@@ -26,17 +29,30 @@
 </head>
 
 <body>
-
-    <div class="cookie-banner color-black flex justify-center align-items-center" id="cookie-banner">
+    <!-- <div class="cookie-banner color-black flex justify-center align-items-center" id="cookie-banner">
         <p class="m-0">We use cookies to improve your experience on our website. By browsing this website, you agree to our use of cookies.</p>
         <input type="button" class="btn m-3 p-1 bg-black-500 color-white rounded-md" onclick="acceptCookies()" value="Accept">
-    </div>
+    </div> -->
 
-    <a type="button" class="to-top absolute rounded-full invisible" href="#top">
+    <a type="button" class="to-top absolute rounded-full fixed" href="#" id="to-top-button">
         <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
             <path d="m480-541.85-184 184L253.85-400 480-626.15 706.15-400 664-357.85l-184-184Z" />
         </svg>
     </a>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+
+            if (scrollPercentage > 8) {
+                document.getElementById('to-top-button').style.display = 'block';
+                document.getElementById('to-top-button').style.opacity = '1';
+            } else {
+                document.getElementById('to-top-button').style.display = 'none';
+                document.getElementById('to-top-button').style.opacity = '0';
+            }
+        });
+    </script>
 
     <header class="container-fluid flex justify-space-between align-items-center flex-wrap grow shrink bg-black-500 navigation" id="top">
         <div class="flex gap-20">
@@ -49,8 +65,28 @@
 
             <div class="nav-bar flex align-items-center color-white font-bold">
                 <a href="#" class="badge">Home</a>
-                <a href="#" class="badge" data-badge="Sale">Sale</a>
-                <a href="#" class="badge" data-badge="New">Products</a>
+                <a href="#" class="badge sale" data-badge="Sale">Sale <span class="material-symbols-outlined" id="dropmenu"></span></a>
+
+                <!-- Dropdown -->
+                <div class="dropdown dd-sale p-5 grid color-black">
+                    <div class="header">Pixel Plaza Promotions</div>
+                    <div class="body grid grid-cols-5">
+                        <a href="#">Sales</a>
+                        <!-- dropdown card template -->
+                        <?php include 'php/generator/generate-dd_cards.php'; ?>
+                    </div>
+                </div>
+
+                <a href="#" class="badge new" data-badge="New">Products <span class="material-symbols-outlined" id="dropmenu"></span></a>
+
+                <!-- Dropdown -->
+                <div class="dropdown dd-products p-5">
+                    <a href="/collections/keyboards.php">Keyboards</a>
+                    <a href="/collections/mouse.php">Mouse</a>
+                    <a href="/collections/headsets.php">Headsets</a>
+                    <a href="/collections/switch.php">Switch</a>
+                </div>
+
                 <a href="#" class="badge">Announcement</a>
             </div>
         </div>
@@ -67,7 +103,7 @@
                 </button>
             </div>
 
-            <a href="#" data-tooltip="Account" class="tooltip">
+            <a href="/accounts/login.php" data-tooltip="Account" class="tooltip">
                 <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e8eaed">
                     <path d="M480-492.31q-57.75 0-98.87-41.12Q340-574.56 340-632.31q0-57.75 41.13-98.87 41.12-41.13 98.87-41.13 57.75 0 98.87 41.13Q620-690.06 620-632.31q0 57.75-41.13 98.88-41.12 41.12-98.87 41.12ZM180-187.69v-88.93q0-29.38 15.96-54.42 15.96-25.04 42.66-38.5 59.3-29.07 119.65-43.61 60.35-14.54 121.73-14.54t121.73 14.54q60.35 14.54 119.65 43.61 26.7 13.46 42.66 38.5Q780-306 780-276.62v88.93H180Zm60-60h480v-28.93q0-12.15-7.04-22.5-7.04-10.34-19.11-16.88-51.7-25.46-105.42-38.58Q534.7-367.69 480-367.69q-54.7 0-108.43 13.11-53.72 13.12-105.42 38.58-12.07 6.54-19.11 16.88-7.04 10.35-7.04 22.5v28.93Zm240-304.62q33 0 56.5-23.5t23.5-56.5q0-33-23.5-56.5t-56.5-23.5q-33 0-56.5 23.5t-23.5 56.5q0 33 23.5 56.5t56.5 23.5Zm0-80Zm0 384.62Z" />
                 </svg>
@@ -202,34 +238,7 @@
             <div class="products-card grid gap-1">
 
                 <!-- Card template -->
-                <div class="card p-5 flex flex-column justify-start">
-                    <!-- Hover toolbar -->
-                    <div class="hover-toolbar flex justify-center align-items-center self-center">
-                        <button class="button view" data-tooltip="Quick View">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-142.6 0-259.8-78.5Q103-349 48-480q55-131 172.2-209.5Q337.4-768 480-768q142.6 0 259.8 78.5Q857-611 912-480q-55 131-172.2 209.5Q622.6-192 480-192Zm0-288Zm0 216q112 0 207-58t146-158q-51-100-146-158t-207-58q-112 0-207 58T127-480q51 100 146 158t207 58Z" />
-                            </svg>
-                        </button>
-                        <button class="button cart" data-tooltip="Add to Cart">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path d="M444-576v-132H312v-72h132v-132h72v132h132v72H516v132h-72ZM263.79-96Q234-96 213-117.21t-21-51Q192-198 213.21-219t51-21Q294-240 315-218.79t21 51Q336-138 314.79-117t-51 21Zm432 0Q666-96 645-117.21t-21-51Q624-198 645.21-219t51-21Q726-240 747-218.79t21 51Q768-138 746.79-117t-51 21ZM48-792v-72h133l155 360h301l113-264h78L703-476q-9 20-26.5 32T637-432H317l-42 72h493v72H276q-42 0-63-36.5t0-71.5l52-90-131-306H48Z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <img src="../img/assets/No-image-thumbnail.png" alt="" loading="lazy" class="product-image">
-                    <div class="product-details w-100 text-center">
-                        <p class="brand font-bold text-sm">
-                            <?php echo $product['brand'] ?? '{Brand}'; ?>
-                        </p>
-                        <p class="product font-extrabold text-2xl">
-                            <?php echo $product['name'] ?? '{Product Name}'; ?>
-                        </p>
-                        <p class="price text-base">
-                            <?php echo '₱'; ?>
-                            <?php echo $product['price'] ?? '{Price}'; ?>
-                        </p>
-                    </div>
-                </div>
+                <?php include 'php/generator/generate-cards.php'; ?>
 
             </div>
 
@@ -238,8 +247,33 @@
     </section>
 
     <section class="container-fluid fourth">
-        <div class="news-letter flex flex-columns justify-items-center align-items-center gap-5">
-            asd
+        <h1 class="text-uppercase font-bold">Shop by Categories</h1>
+
+        <div class="categories relative">
+            <a href="#" class="category item1">
+                <div class="text-container text-capitalize">
+                    <h3>keyboards</h3>
+                    <p><?php echo $product['quantity'] ?? '0' ?> items</p>
+                </div>
+            </a>
+            <a href="#" class="category item2">
+                <div class="text-container text-capitalize">
+                    <h3>Mouse</h3>
+                    <p><?php echo $product['quantity'] ?? '0' ?> items</p>
+                </div>
+            </a>
+            <a href="#" class="category item3">
+                <div class="text-container text-capitalize">
+                    <h3>Headsets</h3>
+                    <p><?php echo $product['quantity'] ?? '0' ?> items</p>
+                </div>
+            </a>
+            <a href="#" class="category item4">
+                <div class="text-container text-capitalize">
+                    <h3>Switch</h3>
+                    <p><?php echo $product['quantity'] ?? '0' ?> items</p>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -263,7 +297,7 @@
             </div>
         </div>
         <div class="footer-body color-white flex justify-space-between align-items-center">
-            <div class="site-map flex gap-50">
+            <div class="site-map flex">
                 <div class="company flex flex-column gap-3">
                     <h6 class="font-bold">Company</h6>
                     <a href="#" class="link">About Us</a>
@@ -274,8 +308,9 @@
                 <div class="products flex flex-column gap-3">
                     <h6 class="font-bold">Products</h6>
                     <a href="#" class="link">Keyboards</a>
-                    <a href="#" class="link">Mice</a>
+                    <a href="#" class="link">Mouse</a>
                     <a href="#" class="link">Headsets</a>
+                    <a href="#" class="link">Switch</a>
                 </div>
                 <div class="online-store flex flex-column gap-3">
                     <h6 class="font-bold">Online Stores</h6>
