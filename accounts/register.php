@@ -64,7 +64,7 @@
                 <div class="dropdown dd-sale p-5 color-black">
                     <div class="header">Pixel Plaza Promotions</div>
                     <div class="body grid grid-cols-5">
-                        <a href="#">Sales</a>
+                        <a href="../collections/deals.php">Sales</a>
                         <!-- dropdown card template -->
                         <?php include '../php/generator/generate-dd_cards-parent_sourece.php'; ?>
                     </div>

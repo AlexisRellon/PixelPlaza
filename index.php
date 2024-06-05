@@ -86,10 +86,10 @@
 
                 <!-- Dropdown -->
                 <div class="dropdown dd-products p-5">
-                    <a href="/collections/keyboards.php">Keyboards</a>
-                    <a href="/collections/mouse.php">Mouse</a>
-                    <a href="/collections/headsets.php">Headsets</a>
-                    <a href="/collections/switch.php">Switch</a>
+                    <a href="./collections/keyboards.php">Keyboards</a>
+                    <a href="./collections/mouse.php">Mouse</a>
+                    <a href="./collections/headsets.php">Headsets</a>
+                    <a href="./collections/switch.php">Switch</a>
                 </div>
 
                 <a href="./announcement.php" class="badge">Announcement</a>
