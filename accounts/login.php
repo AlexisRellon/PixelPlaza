@@ -59,30 +59,30 @@
             </a>
 
             <div class="nav-bar flex align-items-center color-white font-bold">
-                <a href="#" class="badge">Home</a>
-                <a href="#" class="badge sale" data-badge="Sale">Sale <span class="material-symbols-outlined" id="dropmenu"></span></a>
+                <a href="../index.php" class="badge">Home</a>
+                <a href="../collections/deals.php" class="badge sale" data-badge="Sale">Sale <span class="material-symbols-outlined" id="dropmenu"></span></a>
 
                 <!-- Dropdown -->
-                <div class="dropdown dd-sale p-5 grid color-black">
+                <div class="dropdown dd-sale p-5 color-black">
                     <div class="header">Pixel Plaza Promotions</div>
                     <div class="body grid grid-cols-5">
-                        <a href="#">Sales</a>
+                        <a href="../collections/deals.php">Sales</a>
                         <!-- dropdown card template -->
-                        <?php /* include '../php/generator/generate-dd_cards.php';  */ ?>
+                        <?php include '../php/generator/generate-dd_cards-parent_sourece.php'; ?>
                     </div>
                 </div>
 
-                <a href="#" class="badge new" data-badge="New">Products <span class="material-symbols-outlined" id="dropmenu"></span></a>
+                <a href="../collections/all.php" class="badge new" data-badge="New">Products <span class="material-symbols-outlined" id="dropmenu"></span></a>
 
                 <!-- Dropdown -->
                 <div class="dropdown dd-products p-5">
-                    <a href="/collections/keyboards.php">Keyboards</a>
-                    <a href="/collections/mouse.php">Mouse</a>
-                    <a href="/collections/headsets.php">Headsets</a>
-                    <a href="/collections/switch.php">Switch</a>
+                    <a href="../collections/keyboards.php">Keyboards</a>
+                    <a href="../collections/mouse.php">Mouse</a>
+                    <a href="../collections/headsets.php">Headsets</a>
+                    <a href="../collections/switch.php">Switch</a>
                 </div>
 
-                <a href="#" class="badge">Announcement</a>
+                <a href="../announcement.php" class="badge">Announcement</a>
             </div>
         </div>
 
@@ -98,7 +98,7 @@
                 </button>
             </div>
 
-            <a href="/accounts/login.php" data-tooltip="Account" class="tooltip">
+            <a href="../accounts/login.php" data-tooltip="Account" class="tooltip">
                 <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e8eaed">
                     <path d="M480-492.31q-57.75 0-98.87-41.12Q340-574.56 340-632.31q0-57.75 41.13-98.87 41.12-41.13 98.87-41.13 57.75 0 98.87 41.13Q620-690.06 620-632.31q0 57.75-41.13 98.88-41.12 41.12-98.87 41.12ZM180-187.69v-88.93q0-29.38 15.96-54.42 15.96-25.04 42.66-38.5 59.3-29.07 119.65-43.61 60.35-14.54 121.73-14.54t121.73 14.54q60.35 14.54 119.65 43.61 26.7 13.46 42.66 38.5Q780-306 780-276.62v88.93H180Zm60-60h480v-28.93q0-12.15-7.04-22.5-7.04-10.34-19.11-16.88-51.7-25.46-105.42-38.58Q534.7-367.69 480-367.69q-54.7 0-108.43 13.11-53.72 13.12-105.42 38.58-12.07 6.54-19.11 16.88-7.04 10.35-7.04 22.5v28.93Zm240-304.62q33 0 56.5-23.5t23.5-56.5q0-33-23.5-56.5t-56.5-23.5q-33 0-56.5 23.5t-23.5 56.5q0 33 23.5 56.5t56.5 23.5Zm0-80Zm0 384.62Z" />
                 </svg>
@@ -121,15 +121,15 @@
                     <input type="submit" class="btn color-white font-bold" value="Sign in">
                 </form>
                 <div class="flex justify-end">
-                    <a href="/accounts/forgot-password.php" class="link">Forgot password?</a>
+                    <a href="../accounts/forgot-password.php" class="link">Forgot password?</a>
                 </div>
             </div>
         </main>
         <sub>
             <div class="register flex flex-column gap-5 p-10">
                 <h3 class="font-bold">New to Pixel Plaza?</h3>
-                <p>Sign up now to get access to exclusive deals and promotions.</p>
-                <a href="/accounts/register.php" class="btn register color-white font-bold">Register</a>
+                <p style="margin: 5px 0 0 0;">Sign up now to get access to exclusive deals and promotions.</p>
+                <a href="../accounts/register.php" class="btn register color-white font-bold">Register</a>
             </div>
         </sub>
     </section>
