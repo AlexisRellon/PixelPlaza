@@ -17,7 +17,7 @@ function generateTemplate($brand, $name, $price)
                             </svg>
         </button>
     </div>
-    <img src="../img/assets/No-image-thumbnail.png" alt="" loading="lazy" class="product-image">
+    <img src="./img/assets/No-image-thumbnail.png" alt="" loading="lazy" class="product-image">
     <div class="product-details w-100 text-center">
         <p class="brand font-bold text-sm">$brand</p>
         <p class="product font-extrabold text-2xl">$name</p>
