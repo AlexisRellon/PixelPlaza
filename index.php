@@ -1,8 +1,8 @@
 <?php session_start();
 /* include './php/db.php'; */
 
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
+if (isset($_SESSION['Email'])) {
+    $email = $_SESSION['Email'];
     $url = './accounts/profile.php';
 }
 

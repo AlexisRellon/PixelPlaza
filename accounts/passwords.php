@@ -2,7 +2,12 @@
 session_start();
 
 if (isset($_SESSION['Email'])) {
+    $firstName = $_SESSION['FirstName'];
+    $lastName = $_SESSION['LastName'];
     $email = $_SESSION['Email'];
+    $uid = $_SESSION['UID'];
+    $role = $_SESSION['Role'];
+
     $url = '../accounts/profile.php';
 }
 ?>
@@ -31,6 +36,8 @@ if (isset($_SESSION['Email'])) {
     <link rel="icon" href="../img/brand-logo-white.png" type="image/x-icon">
 
     <script src="../js/script.js"></script>
+
+
 </head>
 
 <body>
@@ -116,24 +123,29 @@ if (isset($_SESSION['Email'])) {
         </div>
     </header>
 
-    <section class="signup-field grid grid-cols-1 justify-items-center">
-        <main>
-            <div class="register-form">
-                <h1 class="font-bold">Register</h1>
-                <form class="grid gap-5" action="" method="POST" target="_parent">
-                    <input type="text" name="first_name" id="" placeholder="First Name" required />
-                    <input type="text" name="last_name" id="" placeholder="Last Name" required />
-                    <input type="email" name="email" id="" placeholder="Email" required />
-                    <input type="password" name="password" id="" placeholder="Password" required />
-
-                    <p>Sign up for our newsletter to receive updates on new products, exclusive deals, and more!</p>
-
-                    <input type="submit" name="submit" class="btn btn-primary" value="Register">
-                    <a class="btn btn-secondary" href="./login.php">Login</a>
-
-                </form>
+    <section class="container-fluid accounts flex flex-column flex-wrap justify-center color-black">
+        <div class="header-text">
+            <h2 class="font-bold">Account</h2>
+        </div>
+        <div class="dashboard grid gap-5">
+            <div class="menus flex flex-column gap-5">
+                <a href="profile.php" class="menu active">Dashboard</a>
+                <?php
+                if(isset($_SESSION['Role']) && $role == 1){
+                    echo '<a href="admin.php" class="menu">Admin Panel</a>';
+                }
+                ?>
+                <a href="orders.php" class="menu">Orders</a>
+                <a href="addresses.php" class="menu">Addresses</a>
+                <a href="password.php" class="menu">Change Password</a>
+                <a href="logout.php" class="menu logout">Logout</a>
             </div>
-        </main>
+            <div class="display flex flex-column">
+                <!-- Change Contents for every page under ../accounts -->
+                
+
+            </div>
+        </div>
     </section>
 
     <footer class="container-fluid bg-black-500 flex flex-column gap-15 footer">
@@ -199,52 +211,6 @@ if (isset($_SESSION['Email'])) {
         </div>
     </footer>
 
-    <?php
-    require_once '../php/db.php';
-    include '../php/filter-data.php';
-
-    if (isset($_POST['submit'])) {
-        $first_name = filterData($_POST['first_name']);
-        $last_name = filterData($_POST['last_name']);
-        $email = filterData($_POST['email']);
-        $password = filterData($_POST['password']);
-
-        // Check if email already exists
-        $check_email_query = "SELECT * FROM users WHERE email='$email'";
-        $check_email_result = $conn->query($check_email_query);
-
-        if ($check_email_result->num_rows > 0) {
-            echo <<<HTML
-                <div class="alert alert-danger">
-                    <p>Email already exists</p>
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                </div>
-                HTML;
-        } else {
-            // Hash password
-            $password = password_hash($password, PASSWORD_BCRYPT, $options);
-
-            $sql = "INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('$first_name', '$last_name', '$email', '$password')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo <<<HTML
-                    <div class="alert alert-success">
-                        <p>Account created successfully</p>
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    </div>
-                    HTML;
-            } else {
-                return <<<HTML
-                    <div class="alert alert-danger">
-                        <p>Error: $conn->error</p>
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    </div>
-                    HTML;
-            }
-        }
-    }
-
-    ?>
 </body>
 
 </html>

@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +72,9 @@
                     <div class="body grid grid-cols-5">
                         <a href="../collections/deals.php">Sales</a>
                         <!-- dropdown card template -->
-                        <?php include '../php/generator/generate-dd_cards-parent_sourece.php'; ?>
+                        <?php
+                        include '../php/generator/generate-dd_cards-parent_sourece.php';
+                        ?>
                     </div>
                 </div>
 
@@ -98,7 +104,7 @@
                 </button>
             </div>
 
-            <a href="../accounts/login.php" data-tooltip="Account" class="tooltip">
+            <a href="<?php echo $url ?? '../accounts/login.php' ?>" data-tooltip="Account" class="tooltip">
                 <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e8eaed">
                     <path d="M480-492.31q-57.75 0-98.87-41.12Q340-574.56 340-632.31q0-57.75 41.13-98.87 41.12-41.13 98.87-41.13 57.75 0 98.87 41.13Q620-690.06 620-632.31q0 57.75-41.13 98.88-41.12 41.12-98.87 41.12ZM180-187.69v-88.93q0-29.38 15.96-54.42 15.96-25.04 42.66-38.5 59.3-29.07 119.65-43.61 60.35-14.54 121.73-14.54t121.73 14.54q60.35 14.54 119.65 43.61 26.7 13.46 42.66 38.5Q780-306 780-276.62v88.93H180Zm60-60h480v-28.93q0-12.15-7.04-22.5-7.04-10.34-19.11-16.88-51.7-25.46-105.42-38.58Q534.7-367.69 480-367.69q-54.7 0-108.43 13.11-53.72 13.12-105.42 38.58-12.07 6.54-19.11 16.88-7.04 10.35-7.04 22.5v28.93Zm240-304.62q33 0 56.5-23.5t23.5-56.5q0-33-23.5-56.5t-56.5-23.5q-33 0-56.5 23.5t-23.5 56.5q0 33 23.5 56.5t56.5 23.5Zm0-80Zm0 384.62Z" />
                 </svg>
@@ -115,10 +121,10 @@
         <main>
             <div class="login-form flex flex-column gap-5 bg-white-500 p-10 rounded-md">
                 <h1 class="font-bold">Login</h1>
-                <form action="../php/accounts/login.php" method="POST" autocomplete="FALSE" class="flex flex-column gap-5">
+                <form action="" method="POST" autocomplete="FALSE" target="_parent" class="flex flex-column gap-5">
                     <input type="email" name="email" id="email" class="input" placeholder="Email" required>
                     <input type="password" name="password" id="password" class="input" placeholder="Password" required>
-                    <input type="submit" class="btn color-white font-bold" value="Sign in">
+                    <input type="submit" class="btn color-white font-bold" value="Sign in" name="sign_in">
                 </form>
                 <div class="flex justify-end">
                     <a href="../accounts/forgot-password.php" class="link">Forgot password?</a>
@@ -196,6 +202,48 @@
             </div>
         </div>
     </footer>
+
+    <?php
+    ob_start();
+    require_once '../php/db.php';
+    include '../php/filter-data.php';
+
+    if (isset($_POST['sign_in'])) {
+        $email = filterData($_POST['email']);
+        $password = filterData($_POST['password']);
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['Password'])) {
+                $_SESSION['Email'] = $row['Email'];
+                $_SESSION['FirstName'] = $row['FirstName'];
+                $_SESSION['LastName'] = $row['LastName'];
+                $_SESSION['UID'] = $row['UserID'];
+                $_SESSION['Role'] = $row['UserTypeID'];
+
+                header('Location: ../index.php');
+            } else {
+                echo <<<HTML
+                <div class="alert alert-danger">
+                    <p>Invalid Email or Password</p>
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+                HTML;
+            }
+        } else {
+            echo <<<HTML
+                <div class="alert alert-danger">
+                    <p>Invalid Email or Password</p>
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+                HTML;
+        }
+    }
+    ob_end_flush();
+    ?>
 </body>
 
 </html>
