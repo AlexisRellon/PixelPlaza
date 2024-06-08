@@ -2,7 +2,7 @@
 
 function generateTemplate($brand, $name, $price)
 {
-    return <<<HTML
+    echo <<<HTML
 <div class="card p-5 flex flex-column justify-start">
     <!-- Hover toolbar -->
     <div class="hover-toolbar flex justify-center align-items-center self-center">
