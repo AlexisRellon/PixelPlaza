@@ -24,11 +24,11 @@
     --color-white-100: #ced4da;
 
     /* Alert, Warning, Information, Success, Danger colors*/
-    --color-alert: #f6e05e;
-    --color-warning: #f6ad55;
-    --color-information: #3490dc;
-    --color-success: #38c172;
-    --color-danger: #e3342f;
+    --color-alert: #f6e05e; --color-alert-background: #fff9db;
+    --color-warning: #f6ad55; --color-warning-background: #fff4e6;
+    --color-info: #3490dc;  --color-info-background: #ebf8ff;
+    --color-success: #38c172; --color-success-background: #f0fff4;
+    --color-danger: #e3342f; --color-danger-background: #fff5f5;
 
     /* Sale, New, Hot */
     --color-sale: #16994d;

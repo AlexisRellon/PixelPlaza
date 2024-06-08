@@ -756,6 +756,179 @@
     }
 }
 
+/* Alert box */
+
+.alert {
+    position: absolute;
+    padding: 1rem 1rem;
+    border-radius: 0.25rem;
+    width: 25vw;
+    min-width: 15vw;
+    font-weight: 700;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 3vh;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 9999;
+
+    scale: 0;
+    animation: popUp 0.3s cubic-bezier(.5,1.39,.56,.82) forwards;
+
+    p {
+        margin: 0 !important;
+    }
+
+    span.closebtn {
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    &.alert-success {
+        background-color: var(--color-success-background);
+        border: 1px solid var(--color-success);
+        color: var(--color-success);
+
+        span.closebtn {
+            color: var(--color-success);
+        }
+    }
+
+    &.alert-danger {
+        background-color: var(--color-danger-background);
+        border: 1px solid var(--color-danger);
+        color: var(--color-danger);
+
+        span.closebtn {
+            color: var(--color-danger);
+        }
+    }
+
+    &.alert-warning {
+        background-color: var(--color-warning-background);
+        border: 1px solid var(--color-warning);
+        color: var(--color-warning);
+        span.closebtn {
+            color: var(--color-warning);
+        }
+    }
+
+    &.alert-info {
+        background-color: var(--color-info-background);
+        border: 1px solid var(--color-info);
+        color: var(--color-info);
+
+        span.closebtn {
+            color: var(--color-info);
+        }
+    }
+}
+
+.alert-box {
+    position: relative;
+    padding: .75rem 1rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    min-width: 15vw;
+    font-weight: 700;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        margin: 0 !important;
+    }
+
+    &.alert-success {
+        background-color: var(--color-success-background);
+        border: 1px solid var(--color-success);
+        color: var(--color-success);
+    }
+
+    &.alert-danger {
+        background-color: var(--color-danger-background);
+        border: 1px solid var(--color-danger);
+        color: var(--color-danger);
+    }
+
+    &.alert-warning {
+        background-color: var(--color-warning-background);
+        border: 1px solid var(--color-warning);
+        color: var(--color-warning);
+    }
+
+    &.alert-info {
+        background-color: var(--color-info-background);
+        border: 1px solid var(--color-info);
+        color: var(--color-info);
+    }
+
+}
+
+/* Profile */
+.accounts {
+    padding: 10rem 10rem !important;
+
+    .header-text {
+        margin: 0 0 5rem 0;
+    }
+
+    .dashboard {
+        grid-template-columns: .5fr 2fr;
+        
+        .menus {
+            border-right: 1px solid var(--color-white-100);
+
+            .menu {
+                color: var(--color-black-200);
+
+                &.active {
+                    font-weight: 800;
+                }
+
+                &.logout:hover {
+                    color: var(--color-danger);
+                }
+
+                &:hover {
+                    color: var(--color-black-500);
+                }
+            }
+        }
+
+        .display {
+            padding: 0 0 0 2rem;
+            
+            .orders-wrapper {
+                display: grid;
+                grid-auto-rows: .5fr;
+            }
+
+            .account-details-wrapper {
+                grid-auto-rows: 1fr;
+                
+                .list {
+                    gap: 1rem;
+                    
+                    .detail-list {
+                        display: grid;
+                        grid-template-columns: .25fr 1fr;
+                        gap: 1rem;
+                        border-bottom: 1px solid var(--color-white-100);
+
+                        h6 {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 /* Media Queries */
 @media screen and (max-width: 1400px) {
@@ -1094,5 +1267,10 @@
         opacity: 0;
         height: 0;
     }
+}
 
+@keyframes popUp {
+    to {
+        scale: 1;
+    }
 }
