@@ -129,13 +129,13 @@ if (isset($_SESSION['Email'])) {
         </div>
         <div class="dashboard grid gap-5">
             <div class="menus flex flex-column gap-5">
-                <a href="profile.php" class="menu active">Dashboard</a>
+                <a href="profile.php" class="menu">Dashboard</a>
                 <?php
                 if(isset($_SESSION['Role']) && $role == 1){
                     echo '<a href="admin.php" class="menu">Admin Panel</a>';
                 }
                 ?>
-                <a href="orders.php" class="menu">Orders</a>
+                <a href="orders.php" class="menu active">Orders</a>
                 <a href="addresses.php" class="menu">Addresses</a>
                 <a href="password.php" class="menu">Change Password</a>
                 <a href="logout.php" class="menu logout">Logout</a>
@@ -143,7 +143,7 @@ if (isset($_SESSION['Email'])) {
             <div class="display flex flex-column">
                 <!-- Change Contents for every page under ../accounts -->
                 
-
+                
             </div>
         </div>
     </section>
