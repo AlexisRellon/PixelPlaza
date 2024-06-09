@@ -224,7 +224,12 @@ if (isset($_SESSION['Email'])) {
             // Hash password
             $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-            $sql = "INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('$first_name', '$last_name', '$email', '$password')";
+            // Insert a row into the address_table and get the AddressID
+            $conn->query("INSERT INTO address_table () VALUES ()");
+            $address_id = $conn->insert_id;
+
+            // Use the AddressID when inserting the row into the users table
+            $sql = "INSERT INTO users (FirstName, LastName, Email, Password, AddressID) VALUES ('$first_name', '$last_name', '$email', '$password', '$address_id')";
 
             if ($conn->query($sql) === TRUE) {
                 echo <<<HTML
