@@ -94,6 +94,16 @@ CREATE TABLE IF NOT EXISTS `Addresses` (
     `ZipCode` VARCHAR(20) -- Zip Code
 );
 
+CREATE TABLE IF NOT EXISTS `pixelplaza`.`addresses`(
+    `AddressesID` INT NOT NULL AUTO_INCREMENT,
+    `Address` TEXT NOT NULL,
+    `City` TEXT NOT NULL,
+    `State` TEXT NOT NULL,
+    `Country` TEXT NOT NULL,
+    `Zipcode` TEXT NOT NULL,
+    PRIMARY KEY(`AddressesID`)
+) ENGINE = InnoDB;
+
 CREATE TABLE IF NOT EXISTS `UserStatus` (
     `UserStatusID` INT PRIMARY KEY AUTO_INCREMENT, -- Status ID
     `StatusName` VARCHAR(50) NOT NULL -- Status Name e.g. verified, pending, blocked
