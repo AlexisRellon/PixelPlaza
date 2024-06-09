@@ -144,7 +144,7 @@ if (isset($_SESSION['Email'])) {
                 <!-- Change Contents for every page under ../accounts -->
                 <p>
                     Hello, <b class="font-bold"><?php echo $firstName . ' ' . $lastName; ?></b>, Welcome to your account dashboard. From here you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
-                </p>
+                </p><br>
                 <div class="orders-wrapper">
                     <h5>Order History</h5>
                     <!-- TODO: php order list -->
@@ -177,11 +177,11 @@ if (isset($_SESSION['Email'])) {
                     <div class="list flex flex-column">
                         <div class="detail-list">
                             <h6>Name</h6>
-                            <p><?php echo $firstName . ' ' . $lastName; ?></p>
+                            <p class="info"><?php echo $firstName . ' ' . $lastName; ?></p>
                         </div>
                         <div class="detail-list">
                             <h6>Email</h6>
-                            <p><?php echo $email; ?></p>
+                            <p class="info"><?php echo $email; ?></p>
                         </div>
                     </div>
                 </div>
