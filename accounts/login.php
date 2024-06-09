@@ -1,5 +1,5 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 
 ob_start();
 ?>
@@ -223,7 +223,17 @@ ob_start();
                 $_SESSION['LastName'] = $row['LastName'];
                 $_SESSION['UID'] = $row['UserID'];
                 $_SESSION['Role'] = $row['UserTypeID'];
+                $AddressID = $row['AddressID'];
 
+                $sql = "SELECT Country FROM `address_table` WHERE AddressID = '$AddressID'";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $_SESSION['Country'] = $row['Country'];
+                }
+
+                $_SESSION['Country'] = '';
                 header('Location: ../index.php');
             } else {
                 echo <<<HTML
