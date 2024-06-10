@@ -79,28 +79,8 @@
     --spacing-nonuple: 9rem;
     --spacing-decuple: 10rem;
 
-    /* Z-index */
-    --z-index-0: 0;
-    --z-index-1: 1;
-    --z-index-2: 2;
-    --z-index-3: 3;
-    --z-index-4: 4;
-    --z-index-5: 5;
-    --z-index-6: 6;
-    --z-index-7: 7;
-    --z-index-8: 8;
-    --z-index-9: 9;
-    --z-index-10: 10;
-
     /* Transition */
     --transition: all 0.3s ease-in-out;
-
-    /* Breakpoints */
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-2xl: 1400px;
 
     /* Grid */
     --grid-columns: 12;
