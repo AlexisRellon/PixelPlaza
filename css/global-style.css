@@ -913,6 +913,30 @@
                 grid-auto-rows: .5fr;
             }
 
+            form input[type="text"],
+            form input[type="email"],
+            form input[type="password"],
+            form input[type="tel"],
+            form select {
+                width: 100%;
+                color: var(--color-black-500);
+                background-color: var(--color-white-500);
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                border: 1px solid var(--color-white-100);
+                transition: all 0.3s ease-in-out;
+
+                &::placeholder {
+                    color: var(--color-black-300);
+                }
+
+                &:-webkit-autofill {
+                    -webkit-text-fill-color: var(--color-black-500);
+                    -webkit-box-shadow: 0 0 0 1000px var(--color-white-500) inset;
+                }
+
+            }
+
             .account-details-wrapper {
                 grid-auto-rows: 1fr;
 
@@ -938,31 +962,6 @@
             }
 
             .address-wrapper {
-
-                input[type="text"],
-                input[type="email"],
-                input[type="password"],
-                input[type="tel"],
-                select {
-                    width: 100%;
-                    color: var(--color-black-500);
-                    background-color: var(--color-white-500);
-                    padding: 0.5rem 1rem;
-                    border-radius: 0.25rem;
-                    border: 1px solid var(--color-white-100);
-                    transition: all 0.3s ease-in-out;
-
-                    &::placeholder {
-                        color: var(--color-black-300);
-                    }
-
-                    &:-webkit-autofill {
-                        -webkit-text-fill-color: var(--color-black-500);
-                        -webkit-box-shadow: 0 0 0 1000px var(--color-white-500) inset;
-                    }
-
-                }
-
                 h5 {
                     font-weight: 700;
                 }
@@ -991,7 +990,7 @@
 
                         & .btn {
                             background-color: var(--color-primary);
-                            padding: 0.5rem 1,5rem;
+                            padding: 0.5rem 1, 5rem;
                             font-weight: 700;
                             border: 0;
                             border-radius: 0.25rem;
@@ -1007,6 +1006,45 @@
                                 color: var(--color-black-500);
                                 cursor: not-allowed;
                             }
+                        }
+                    }
+                }
+            }
+
+            .password-wrapper {
+                h5 {
+                    font-weight: 700;
+                }
+
+                & .form-group {
+                    & .btn {
+                        background-color: var(--color-primary);
+                        padding: 0.5rem 1, 5rem;
+                        font-weight: 700;
+                        border: 0;
+                        border-radius: 0.25rem;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            background-color: var(--color-secondary);
+                        }
+
+                        &:disabled {
+                            background-color: var(--color-white-500);
+                            color: var(--color-black-500);
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    & .password-requirements {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 1rem;
+                        margin-top: 1.25rem;
+
+                        & p {
+                            font-weight: 700;
                         }
                     }
                 }
