@@ -2,14 +2,21 @@
 session_start();
 
 if (isset($_SESSION['Email'])) {
-    $firstName = $_SESSION['FirstName'];
-    $lastName = $_SESSION['LastName'];
-    $email = $_SESSION['Email'];
+    $address_id = $_SESSION['AddressID'];
     $uid = $_SESSION['UID'];
     $role = $_SESSION['Role'];
-    $country = $_SESSION['Country'];
 
-    $url = '../accounts/profile.php';
+    $firstName = $_SESSION['FirstName'] ?? '';
+    $lastName = $_SESSION['LastName'] ?? '';
+    $email = $_SESSION['Email'] ?? '';
+    $phone = $_SESSION['Phone'] ?? '';
+    $address = $_SESSION['Address'] ?? '';
+    $city = $_SESSION['City'] ?? '';
+    $state = $_SESSION['State'] ?? '';
+    $zipCode = $_SESSION['ZipCode'] ?? '';
+    $country = $_SESSION['Country'] ?? '';
+
+    $url = '../accounts/profile.php' ?? '../accounts/login.php';
 }
 ?>
 <!DOCTYPE html>
@@ -111,7 +118,7 @@ if (isset($_SESSION['Email'])) {
                 </button>
             </div>
 
-            <a href="<?php echo $url ?? '../accounts/login.php' ?>" data-tooltip="Account" class="tooltip">
+            <a href="<?php echo $url ?>" data-tooltip="Account" class="tooltip">
                 <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e8eaed">
                     <path d="M480-492.31q-57.75 0-98.87-41.12Q340-574.56 340-632.31q0-57.75 41.13-98.87 41.12-41.13 98.87-41.13 57.75 0 98.87 41.13Q620-690.06 620-632.31q0 57.75-41.13 98.88-41.12 41.12-98.87 41.12ZM180-187.69v-88.93q0-29.38 15.96-54.42 15.96-25.04 42.66-38.5 59.3-29.07 119.65-43.61 60.35-14.54 121.73-14.54t121.73 14.54q60.35 14.54 119.65 43.61 26.7 13.46 42.66 38.5Q780-306 780-276.62v88.93H180Zm60-60h480v-28.93q0-12.15-7.04-22.5-7.04-10.34-19.11-16.88-51.7-25.46-105.42-38.58Q534.7-367.69 480-367.69q-54.7 0-108.43 13.11-53.72 13.12-105.42 38.58-12.07 6.54-19.11 16.88-7.04 10.35-7.04 22.5v28.93Zm240-304.62q33 0 56.5-23.5t23.5-56.5q0-33-23.5-56.5t-56.5-23.5q-33 0-56.5 23.5t-23.5 56.5q0 33 23.5 56.5t56.5 23.5Zm0-80Zm0 384.62Z" />
                 </svg>
@@ -150,21 +157,21 @@ if (isset($_SESSION['Email'])) {
                     <form class="address-form" action="" method="post">
                         <label>Name</label>
                         <div class="grouped-input">
-                            <input type="text" name="FirstName" value="<?php echo $firstName ?>" disabled required>
-                            <input type="text" name="LastName" value="<?php echo $lastName ?>" disabled disabled required>
+                            <input id="FirstName" type="text" name="FirstName" value="<?php echo $firstName ?>" disabled required>
+                            <input id="LastName" type="text" name="LastName" value="<?php echo $lastName ?>" disabled disabled required>
                         </div>
                         <label for="Email">Email</label>
-                        <input type="email" name="Email" value="<?php echo $email ?>" disabled disabled required>
+                        <input id="Email" type="email" name="Email" value="<?php echo $email ?>" disabled disabled required>
                         <label for="Phone">Phone</label>
-                        <input type="tel" name="Phone" placeholder="Phone" pattern="[0-9]{11}" disabled required>
+                        <input id="Phone" type="text" name="Phone" placeholder="Phone" value="<?php echo $phone ?>" disabled required>
                         <label for="Address">Address</label>
-                        <input type="text" name="Address" placeholder="Address" disabled required>
+                        <input id="Address" type="text" name="Address" placeholder="Address" value="<?php echo $address ?>" disabled required>
                         <label for="City">City</label>
-                        <input type="text" name="City" placeholder="City" disabled required>
+                        <input id="City" type="text" name="City" placeholder="City" value="<?php echo $city ?>" disabled required>
                         <label for="State">State</label>
-                        <input type="text" name="State" placeholder="State" disabled required>
+                        <input id="State" type="text" name="State" placeholder="State" value="<?php echo $state ?>" disabled required>
                         <label for="ZipCode">Zip Code</label>
-                        <input type="text" name="ZipCode" placeholder="Zip Code" disabled required>
+                        <input id="ZipCode" type="text" name="ZipCode" placeholder="Zip Code" value="<?php echo $zipCode ?>" disabled required>
                         <label for="Country">Country</label>
                         <select name="Country" disabled required>
                             <option value="">-- Select Country --</option>
@@ -453,6 +460,84 @@ if (isset($_SESSION['Email'])) {
         </div>
     </footer>
 
+    <?php
+    require_once('../php/db.php');
+
+    // Process the form data
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $firstName = $_POST['FirstName'];
+        $lastName = $_POST['LastName'];
+        $email = $_POST['Email'];
+        $phone = $_POST['Phone'];
+        $address = $_POST['Address'];
+        $city = $_POST['City'];
+        $state = $_POST['State'];
+        $zipCode = $_POST['ZipCode'];
+        $country = $_POST['Country'];
+
+        // Update the user's address
+        $sql = "UPDATE address_table SET Address='$address', City='$city', State='$state', Zipcode='$zipCode', country='$country' WHERE AddressID='$address_id'";
+
+        if ($conn->query($sql) === TRUE) {
+            // Update the user's information
+            $sql2 = "UPDATE users SET FirstName='$firstName', LastName='$lastName', Email='$email', Phone='$phone' WHERE UserID='$uid'";
+
+            if ($conn->query($sql2) === TRUE) {
+                // Get the updated address information
+                $sql2 = "SELECT * FROM users JOIN address_table ON users.UserID = address_table.AddressID WHERE users.UserID='$uid'";
+                $result2 = $conn->query($sql2);
+                $row = $result2->fetch_assoc();
+
+                // Update the session variables
+                $_SESSION['Address'] = $row['Address'];
+                $_SESSION['City'] = $row['City'];
+                $_SESSION['State'] = $row['State'];
+                $_SESSION['ZipCode'] = $row['Zipcode'];
+                $_SESSION['Country'] = $row['Country'];
+                $_SESSION['FirstName'] = $row['FirstName'];
+                $_SESSION['LastName'] = $row['LastName'];
+                $_SESSION['Email'] = $row['Email'];
+                $_SESSION['Phone'] = $row['Phone'];
+
+                // update the values in the form to reflect the changes
+                echo <<<HTML
+                    <script>
+                        document.getElementById('FirstName').value = '$firstName';
+                        document.getElementById('LastName').value = '$lastName';
+                        document.getElementById('Email').value = '$email';
+                        document.getElementById('Phone').value = '$phone';
+                        document.getElementById('Address').value = '$address';
+                        document.getElementById('City').value = '$city';
+                        document.getElementById('State').value = '$state';
+                        document.getElementById('ZipCode').value = '$zipCode';
+                    </script>
+                HTML;
+
+                echo <<<HTML
+                    <div class="alert alert-success" role="alert">
+                        <p>Address updated successfully!</p>
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    </div>
+                HTML;
+            } else {
+                echo <<<HTML
+                    <div class="alert alert-danger" role="alert">
+                        <p>Error updating address: Second Condition</p>
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    </div>
+                    HTML;
+            }
+        } else {
+            echo <<<HTML
+                <div class="alert alert-danger" role="alert">
+                    <p>Error updating address: First Condition</p>
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+                HTML;
+        }
+    }
+    ?>
 </body>
 
 </html>
