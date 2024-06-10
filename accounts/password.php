@@ -143,7 +143,28 @@ if (isset($_SESSION['Email'])) {
             <div class="display flex flex-column">
                 <!-- Change Contents for every page under ../accounts -->
                 
-                
+                <div class="password-wrapper">
+                    <h5>Change Password</h5>
+                    <p>Use this form to change your password. Make sure to use a strong password to keep your account secure.</p>                                               
+                    <br>
+                    <form action="" method="post">
+                        <div class="form-group flex flex-column gap-5">
+                            <label for="current-password">Current Password</label>
+                            <input type="password" name="current-password" id="current-password" class="input" required>
+
+                            <label for="new-password">New Password</label>
+                            <input type="password" name="new-password" id="new-password" class="input" required>
+
+                            <!-- Password must be 8-12 characters... -->
+                            <p class="password-requirements">Password must be 8-12 characters long and contain at least one number, one uppercase letter, one lowercase letter, and one special character.</p>
+                            <br>
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" name="confirm-password" id="confirm-password" class="input" required>
+
+                            <button type="submit" class="btn">Change Password</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
