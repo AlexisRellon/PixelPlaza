@@ -4,3 +4,15 @@ function acceptCookies() {
   // Hide the cookie banner
   document.getElementById("cookie-banner").style.display = "none";
 }
+
+
+function checkCookies() {
+  if (document.cookie.indexOf("acceptCookies=true") == -1) {
+    // Show the cookie banner
+    document.getElementById("cookie-banner").style.display = "block";
+  }
+}
+
+// Check if cookies are accepted
+checkCookies();
+
