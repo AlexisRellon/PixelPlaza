@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2024 at 06:16 AM
+-- Generation Time: Jun 12, 2024 at 11:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,17 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `addresses`
+-- Table structure for table `address_table`
 --
 
-CREATE TABLE `addresses` (
+CREATE TABLE `address_table` (
   `AddressID` int(11) NOT NULL,
-  `Address` text DEFAULT NULL,
-  `City` varchar(100) DEFAULT NULL,
-  `State` varchar(100) DEFAULT NULL,
-  `Country` varchar(100) DEFAULT NULL,
-  `ZipCode` varchar(20) DEFAULT NULL
+  `Address` text NOT NULL,
+  `City` text NOT NULL,
+  `State` text NOT NULL,
+  `Country` text NOT NULL,
+  `Zipcode` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `address_table`
+--
+
+INSERT INTO `address_table` (`AddressID`, `Address`, `City`, `State`, `Country`, `Zipcode`) VALUES
+(1, '123 Fake Street', 'Faketown', 'Fakestate', 'China', '12345'),
+(2, '', '', '', '', ''),
+(3, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -101,7 +110,7 @@ CREATE TABLE `products` (
   `Description` text DEFAULT NULL,
   `Price` decimal(10,2) NOT NULL,
   `SalePrice` decimal(10,2) DEFAULT 0.00,
-  `Quantity` int(11) NOT NULL,
+  `ProductVariant` text NOT NULL COMMENT 'Products Different Variant',
   `ImageURL` text DEFAULT NULL,
   `CategoryID` int(11) DEFAULT NULL,
   `BrandID` int(11) DEFAULT NULL,
@@ -141,18 +150,26 @@ CREATE TABLE `reviews` (
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
-  `Username` varchar(100) NOT NULL,
-  `Password` varchar(255) NOT NULL,
+  `UserID` int(11) NOT NULL COMMENT 'User unique ID',
+  `Password` varchar(255) NOT NULL COMMENT 'Hashed Password',
   `Email` varchar(255) NOT NULL,
-  `FirstName` varchar(100) DEFAULT NULL,
-  `LastName` varchar(100) DEFAULT NULL,
-  `AddressID` int(11) DEFAULT NULL,
-  `Phone` int(11) DEFAULT NULL,
-  `UserTypeID` int(11) DEFAULT NULL,
-  `attempts` int(11) NOT NULL DEFAULT 0,
-  `UserStatusID` int(11) DEFAULT NULL
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
+  `Phone` text DEFAULT NULL,
+  `AddressID` int(11) NOT NULL,
+  `UserTypeID` int(11) DEFAULT 2 COMMENT '1: Admin user, 2: Customer',
+  `attempts` int(11) NOT NULL DEFAULT 0 COMMENT 'If attempts reach 3, change the AccountStatus to blocked',
+  `UserStatusID` int(11) DEFAULT 1 COMMENT '1: Pending, 2: Verified, 3: Blocked'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`UserID`, `Password`, `Email`, `FirstName`, `LastName`, `Phone`, `AddressID`, `UserTypeID`, `attempts`, `UserStatusID`) VALUES
+(1, '$2y$12$5tF2MghAvEQT87sBadahy.5JUDtWYYVMm9k5shPObi3xksxHgVCjq', 'alexis26rellon@gmail.com', 'Alexis John', 'Rellon', '09473993939', 1, 1, 0, 2),
+(2, '$2y$12$67PclMVB40xZF3fEpBhfOOVNk9YzkdjrgsloPVKYOkCwAE1rDrb1C', 'test@someemail.com', 'test', 'test', NULL, 2, 2, 0, 1),
+(3, '$2y$12$Qxq.0gcFw3dF/NxKaCx2bug7qaPXG7BMNNNvh4CjZsrm.VeJ2Mpmu', 'admin@pixelplaza.com', 'Super', 'Admin', NULL, 3, 1, 0, 2); -- Default Admin Account (Super Admin) : Password is 'admin'
 
 -- --------------------------------------------------------
 
@@ -164,6 +181,15 @@ CREATE TABLE `userstatus` (
   `UserStatusID` int(11) NOT NULL,
   `StatusName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `userstatus`
+--
+
+INSERT INTO `userstatus` (`UserStatusID`, `StatusName`) VALUES
+(1, 'Pending'),
+(2, 'Verified'),
+(3, 'Blocked');
 
 -- --------------------------------------------------------
 
@@ -177,13 +203,21 @@ CREATE TABLE `usertypes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `usertypes`
+--
+
+INSERT INTO `usertypes` (`UserTypeID`, `TypeName`) VALUES
+(1, 'Admin'),
+(2, 'Customer');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `addresses`
+-- Indexes for table `address_table`
 --
-ALTER TABLE `addresses`
+ALTER TABLE `address_table`
   ADD PRIMARY KEY (`AddressID`);
 
 --
@@ -241,11 +275,10 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `Username` (`Username`),
   ADD UNIQUE KEY `Email` (`Email`),
-  ADD KEY `AddressID` (`AddressID`),
   ADD KEY `UserTypeID` (`UserTypeID`),
-  ADD KEY `UserStatusID` (`UserStatusID`);
+  ADD KEY `UserStatusID` (`UserStatusID`),
+  ADD KEY `AddressID` (`AddressID`);
 
 --
 -- Indexes for table `userstatus`
@@ -264,10 +297,10 @@ ALTER TABLE `usertypes`
 --
 
 --
--- AUTO_INCREMENT for table `addresses`
+-- AUTO_INCREMENT for table `address_table`
 --
-ALTER TABLE `addresses`
-  MODIFY `AddressID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `address_table`
+  MODIFY `AddressID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -315,19 +348,19 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User unique ID', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `userstatus`
 --
 ALTER TABLE `userstatus`
-  MODIFY `UserStatusID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserStatusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usertypes`
 --
 ALTER TABLE `usertypes`
-  MODIFY `UserTypeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserTypeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -366,7 +399,7 @@ ALTER TABLE `reviews`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`UserTypeID`) REFERENCES `usertypes` (`UserTypeID`) ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`UserStatusID`) REFERENCES `userstatus` (`UserStatusID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`AddressID`) REFERENCES `addresses` (`AddressID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`AddressID`) REFERENCES `address_table` (`AddressID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
