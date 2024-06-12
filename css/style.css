@@ -92,9 +92,9 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
-    /* font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading);
-    letter-spacing: var(--letter-spacing-heading); */
+    letter-spacing: var(--letter-spacing-heading);
 }
 
 h1 {
@@ -119,26 +119,6 @@ h5 {
 
 h6 {
     font-size: 1rem;
-}
-
-blockquote {
-    margin: 0;
-    padding: 1rem;
-    border-left: 0.25rem solid var(--text-color-light);
-    background-color: var(--background-color-light);
-}
-
-pre {
-    margin: 0;
-    padding: 1rem;
-    overflow-x: auto;
-    background-color: var(--background-color-light);
-}
-
-code {
-    font-family: var(--font-family-monospace);
-    font-size: 0.875rem;
-    color: var(--text-color-light);
 }
 
 #root, #__next {
