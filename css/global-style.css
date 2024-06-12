@@ -1012,6 +1012,10 @@
             }
 
             .password-wrapper {
+                input[type="checkbox"] {
+                    margin: 0 0.5rem 0 0;
+                }
+
                 h5 {
                     font-weight: 700;
                 }
@@ -1037,19 +1041,61 @@
                         }
                     }
 
-                    & .password-requirements {
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        gap: 1rem;
-                        margin-top: 1.25rem;
+                    & p {
+                        font-weight: 700;
+                    }
 
-                        & p {
-                            font-weight: 700;
+                    & .password-requirements {
+                        margin: 0 0 0 1rem;
+                        padding: 0 0 0 1rem;
+                        font-weight: 400;
+                        color: var(--color-black-300);
+
+                        & li {
+                            margin: 0.5rem 0;
+                        }
+
+                        & li::before {
+                            content: '\2022';
+                            color: var(--color-black-500);
+                            display: inline-block;
+                            width: 1em;
+                            margin-left: -1em;
                         }
                     }
                 }
             }
         }
+    }
+}
+
+.chkbox-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    .eye { position: absolute; }
+    .eye-slash { position: absolute; display: none; }
+
+    input[type="checkbox"]:checked~.eye {
+        display: none;
+    }
+
+    input[type="checkbox"]:checked~.eye-slash {
+        display: block;
+    }
+
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    span {
+        font-weight: 700;
+        margin: 0 0 0 1.75rem;
     }
 }
 
