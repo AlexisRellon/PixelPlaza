@@ -4,7 +4,6 @@
 img/ERR-Diagram.png
 
 # For security do not publish the following files
-php/db.php
 sql/pixelplay.sql
 .php_tmp
 PixelPlaza_Workspace.code-workspace
