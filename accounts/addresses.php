@@ -138,6 +138,16 @@ if (isset($_SESSION['Email'])) {
         <div class="dashboard grid gap-5">
             <?php include '../components/accounts-sidepanel.php' ?>
             <div class="display flex flex-column">
+                <?php /* Alert the user that the user is Locked */
+                if ($_SESSION['lockedStatus'] == 1) {
+                    echo '
+                    <div class="alert-box alert-danger">
+                        <p>Your account has been locked. Please contact the administrator for more information.</p>
+                    </div>
+                    ';
+                    exit();
+                }
+                ?>
                 <!-- Change Contents for every page under ../accounts -->
 
                 <div class="address-wrapper">
@@ -410,7 +420,7 @@ if (isset($_SESSION['Email'])) {
 
         if ($conn->query($sql) === TRUE) {
             // Update the user's information
-            $sql2 = "UPDATE users SET FirstName='$firstName', LastName='$lastName', Email='$email', Phone='$phone' WHERE UserID='$uid'";
+            $sql2 = "UPDATE users SET FirstName='$firstName', LastName='$lastName', Email='$email', Phone='$phone', UserStatusID=2 WHERE UserID='$uid'";
 
             if ($conn->query($sql2) === TRUE) {
                 // Get the updated address information
