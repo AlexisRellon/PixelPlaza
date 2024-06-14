@@ -168,7 +168,7 @@ if (isset($_SESSION['Email'])) {
             $address_id = $conn->insert_id;
 
             // Use the AddressID when inserting the row into the users table
-            $sql = "INSERT INTO users (FirstName, LastName, Email, Password, AddressID) VALUES ('$first_name', '$last_name', '$email', '$password', '$address_id')";
+            $sql = "INSERT INTO users (FirstName, LastName, Email, Password, AddressID, CreatedAt) VALUES ('$first_name', '$last_name', '$email', '$password', '$address_id', NOW())";
 
             if ($conn->query($sql) === TRUE) {
                 echo <<<HTML
