@@ -2,6 +2,8 @@
 session_start();
 
 ob_start();
+
+$attempt = 0; // If attempt is 0, the user has not attempted to login yet. If attempt is 1, the user has attempted to login. If it reach 3 attempts, the account is locked.
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,6 +159,8 @@ ob_start();
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if (password_verify($password, $row['Password'])) {
+                $_SESSION['attempt']++;
+ 
                 $_SESSION['UID'] = $row['UserID'];
                 $_SESSION['Role'] = $row['UserTypeID'];
                 $_SESSION['AddressID'] = $row['AddressID'];
@@ -165,6 +169,7 @@ ob_start();
                 $_SESSION['LastName'] = $row['LastName'];
                 $_SESSION['Email'] = $row['Email'];
                 $_SESSION['Phone'] = $row['Phone'];
+                $_SESSION['lockedStatus'] = $row['Locked'];
 
                 $sql2 = "SELECT * FROM address_table WHERE AddressID = " . $row['AddressID'];
                 $result2 = $conn->query($sql2);
@@ -176,23 +181,56 @@ ob_start();
                 $_SESSION['ZipCode'] = $row2['Zipcode'];
                 $_SESSION['Country'] = $row2['Country'];
 
+                // Upload the attempt count
+                $sql = "UPDATE users SET attempts = " . $_SESSION['attempt'] . " WHERE Email = '$email'";
+                $conn->query($sql);
 
+                // Set online status
+                $sql = "UPDATE users SET OnlineStatus = 1 WHERE Email = '$email'";
+                $conn->query($sql);
+                
+                // Reset the attempt count
+                $_SESSION['attempt'] = 0;
+                
                 header('Location: ../index.php');
             } else {
-                echo <<<HTML
-                <div class="alert alert-danger">
-                    <p>Invalid Email or Password</p>
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                </div>
+                // Increment the attempt count
+                $_SESSION['attempt']++;
+
+                // Check if the account should be locked
+                if ($_SESSION['attempt'] >= 3) {
+                    $_SESSION['lockStatus'] = 1;
+                    // Lock the account
+                    $sql = "UPDATE users SET Locked = 1 WHERE Email = '$email'";
+                    $conn->query($sql);
+                    
+                    // Upload the attempt count
+                    $sql = "UPDATE users SET attempts = " . $_SESSION['attempt'] . " WHERE Email = '$email'";
+                    $conn->query($sql);
+
+                    // Display the error message
+                    echo <<<HTML
+                        <div class="alert alert-danger">
+                            <p>Account locked. Please contact support.</p>
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
                 HTML;
+                } else {
+                    echo <<<HTML
+                        <div class="alert alert-danger">
+                            <p>Invalid Email or Password</p>
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
+                HTML;
+                }
             }
         } else {
             echo <<<HTML
-                <div class="alert alert-danger">
-                    <p>Invalid Email or Password</p>
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                </div>
-                HTML;
+            <div class="alert alert-danger">
+                <p>Invalid Email or Password</p>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
+            HTML;
         }
     }
     ob_end_flush();
