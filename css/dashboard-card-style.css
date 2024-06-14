@@ -1,0 +1,415 @@
+:root {
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --color-gray-500: #6B7280;
+    --color-gray-400: #9CA3AF;
+    --color-gray-300: #D1D5DB;
+    --color-gray-200: #E5E7EB;
+    --color-gray-100: #F3F4F6;
+}
+
+body {
+    background-color: var(--color-white-400);
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .card-icon {
+        background-color: var(--color-gray-100);
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        &.users {
+            background-color: #1572e8;
+        }
+
+        &.products {
+            background-color: #10b981;
+        }
+
+        &.sales {
+            background-color: #f59e0b;
+        }
+
+        &.orders {
+            background-color: #f87171;
+        }
+    }
+
+    svg {
+        width: 1.75rem;
+        fill: var(--color-white-500);
+    }
+
+    .card-details {
+        p {
+            color: var(--color-gray-500);
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+
+    &.products-chart {
+        grid-column-start: span 3;
+        grid-row: span 2;
+        height: max-content;
+    }
+
+    &.daily-sales {
+        background-color: var(--color-primary);
+        color: white;
+
+        .card-title {
+            font-weight: 800;
+            border-bottom: 0;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+    }
+
+    &.new-users {
+        height: 100%;
+        justify-content: flex-start !important;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead {
+                background-color: var(--color-gray-100);
+                color: var(--color-gray-500);
+            }
+
+            td {
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid var(--color-gray-200);
+            }
+        }
+
+        .card-body {
+            padding: 0;
+            overflow-y: auto;
+            height: 100%;
+        }
+    }
+
+    &.order-lists {
+        grid-column-start: span 4;
+        grid-row: span 3;
+        justify-content: flex-start !important;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead {
+                background-color: var(--color-gray-100);
+                color: var(--color-gray-500);
+                font-weight: 700;
+                text-transform: uppercase;
+                border-top: 2px solid var(--color-gray-200);
+                border-bottom: 2px solid var(--color-gray-200);
+
+                .id {
+                    text-align: left;
+                    width: 10%;
+                }
+
+                .date {
+                    text-align: right;
+                    width: 20%;
+                }
+
+                .amount {
+                    text-align: center;
+                    width: 20%;
+                }
+
+                .status {
+                    text-align: right;
+                    width: 20%;
+                }
+            }
+
+            th,
+            td {
+                padding: 1rem 1.5rem;
+            }
+
+            td {
+                border-bottom: 1px solid var(--color-gray-200);
+            }
+        }
+    }
+
+    &.orders-table {
+        padding: 0;
+        overflow-x: scroll;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead {
+                background-color: var(--color-gray-100);
+                color: var(--color-gray-500);
+                font-weight: 700;
+                text-transform: uppercase;
+                text-align: center;
+                border-top: 2px solid var(--color-gray-200);
+                border-bottom: 2px solid var(--color-gray-200);
+            }
+
+            th,
+            td {
+                padding: 1rem 1.5rem;
+            }
+
+            td {
+                border-bottom: 1px solid var(--color-gray-200);
+                text-align: center;
+                height: 100%;
+            }
+
+            tbody {
+                height: 100%;
+            }
+        }
+    }
+
+    .card-title {
+        width: 100%;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--color-gray-200);
+        font-weight: 500;
+    }
+
+    .card-body {
+        padding: 0;
+        width: 100%;
+    }
+
+}
+
+/* Dashboard Grid Layout */
+
+.graphs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+    height: calc(100vh + 10rem);
+
+    .card {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+}
+
+/* Base CTA Button style */
+.btn {
+    --color-transparent: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparent);
+    border: none;
+    cursor: pointer;
+
+    &.btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+
+        &:hover {
+            background-color: var(--color-secondary);
+        }
+    }
+
+    svg {
+        /* width: 1.5rem; */
+        fill: var(--color-gray-500);
+
+        &:hover {
+            fill: var(--color-gray-400);
+        }
+    }
+
+    .bi-trash-fill {
+        fill: var(--color-gray-500);
+
+        &:hover {
+            fill: var(--color-danger);
+        }
+    }
+}
+
+/* Base Modal <dialog> Style */
+dialog {
+    height: 90%;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-white-500);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-black-500);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &#deleteModal {
+        height: max-content;
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    &#editModalAccount {
+        height: max-content;
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    &[open] {
+        display: flex;
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+
+    .modal {
+        display: none;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-gray-200);
+
+        h3 {
+            margin: 0;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+        border-top: 1px solid var(--color-gray-200);
+
+        button {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            color: var(--color-black-500);
+            background-color: var(--color-white-500);
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid var(--color-white-100);
+            margin: 0.5rem 0;
+        }
+
+        button {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+    }
+
+    .cta-save, .cta-update {
+        background-color: var(--color-primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-secondary);
+        }
+    }
+
+    .cta-close, .cta-cancel {
+        background-color: var(--color-gray-200);
+        color: var(--color-gray-500);
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-gray-300);
+        }
+    }
+
+    .cta-delete {
+        --color-danger-dark: #f87171;
+
+        background-color: var(--color-danger);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-danger-dark);
+        }
+    }
+}
