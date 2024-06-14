@@ -130,6 +130,16 @@ if (isset($_SESSION['Email'])) {
         <div class="dashboard grid gap-5">
             <?php include '../components/accounts-sidepanel.php' ?>
             <div class="display flex flex-column">
+                <?php /* Alert the user that the user is Locked */
+                if ($_SESSION['lockedStatus'] == 1) {
+                    echo '
+                    <div class="alert-box alert-danger">
+                        <p>Your account has been locked. Please contact the administrator for more information.</p>
+                    </div>
+                    ';
+                    exit();
+                }
+                ?>
                 <!-- Change Contents for every page under ../accounts -->
 
 
