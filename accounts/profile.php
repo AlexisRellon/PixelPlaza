@@ -130,10 +130,22 @@ if (isset($_SESSION['Email'])) {
         <div class="dashboard grid gap-5">
             <?php include '../components/accounts-sidepanel.php' ?>
             <div class="display flex flex-column">
+                <?php /* Alert the user that the user is Locked */
+                if ($_SESSION['lockedStatus'] == 1) {
+                    echo '
+                    <div class="alert-box alert-danger">
+                        <p>Your account has been locked. Please contact the administrator for more information.</p>
+                    </div>
+                    ';
+            
+                    exit();
+                }
+                ?>
                 <!-- Change Contents for every page under ../accounts -->
                 <p>
                     Hello, <b class="font-bold"><?php echo $firstName . ' ' . $lastName; ?></b>, Welcome to your account dashboard. From here you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
                 </p><br>
+
                 <div class="orders-wrapper">
                     <h5>Order History</h5>
                     <!-- TODO: php order list -->
