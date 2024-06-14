@@ -1,3 +1,43 @@
+/**
+ * Utility CSS classes for margin, padding, width, height, font weight, display, 
+ * justify items, gap, grid, flex, position, order, visibility, overflow, z-index, 
+ * text alignment, fill, container, rounded, and background color.
+ * 
+ * This CSS file contains utility classes that can be used to quickly apply common 
+ * styles to HTML elements. Each class is named based on its purpose, such as margin, 
+ * padding, width, height, etc. These classes can be added to HTML elements to 
+ * achieve consistent styling across a website or application.
+ * 
+ * The classes are organized into sections based on their purpose, making it easy 
+ * to find and apply the desired styles. For example, the "Margin" section contains 
+ * classes for setting margin values, the "Padding" section contains classes for 
+ * setting padding values, and so on.
+ * 
+ * Each class is named using a consistent naming convention, such as ".m-1" for a 
+ * margin of 0.25rem, ".p-5" for a padding of 1.25rem, ".w-50" for a width of 50%, 
+ * etc. This makes it easy to remember and apply the classes.
+ * 
+ * The utility classes in this file are designed to be used alongside other CSS 
+ * stylesheets or custom styles. They provide a quick and easy way to apply common 
+ * styles without having to write custom CSS for each element.
+ * 
+ * To use these utility classes, simply add the desired class to the HTML element 
+ * you want to style. For example, to apply a margin of 0.25rem to a div element, 
+ * you can add the class "m-1" to the div element like this: <div class="m-1"></div>.
+ * 
+ * Note: This CSS file should be included in your project's CSS bundle or linked 
+ * in your HTML file using a <link> tag.
+ * 
+ * For more information on how to use these utility classes, refer to the 
+ * documentation or comments within the CSS file.
+ * 
+ * @file Utility CSS classes for margin, padding, width, height, font weight, 
+ * display, justify items, gap, grid, flex, position, order, visibility, overflow, 
+ * z-index, text alignment, fill, container, rounded, and background color.
+ * @version 1.0.0
+ * @author Alexis John Rellon
+ * @license MIT
+ */
 /* Margin */
 .m-0 {
     margin: 0;
@@ -109,6 +149,14 @@
     width: auto;
 }
 
+.w-screen {
+    width: 100vw;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
 /* height */
 .h-100 {
     height: 100%;
@@ -164,6 +212,14 @@
 
 .h-auto {
     height: auto;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.h-fit {
+    height: fit-content;
 }
 
 /* Font Weight */

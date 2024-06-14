@@ -1,3 +1,13 @@
+/**
+ * FILEPATH: /c:/xammp/htdocs/PixelPlaza/css/global-style.css
+ *
+ * This file contains the global styles for the PixelPlaza website.
+ * It includes styles for the cookie banner, back-to-top button, tooltips,
+ * navigation, dropdowns, sections, and various other elements.
+ *
+ * The styles are organized into different sections for easier navigation
+ * and maintenance.
+ */
 @import url('../css/root-style.css');
 
 .cookie-banner {
@@ -1098,6 +1108,56 @@
         margin: 0 0 0 1.75rem;
     }
 }
+
+/* Admin Panel */
+.side-bar {
+    width: 265px;
+    padding: 3rem 1.5rem;
+    background-color: var(--color-black-400);
+    float: left;
+
+    .nav-body {
+        margin-top: 3rem;
+
+        h6 {
+            font-weight: 700;
+            color: var(--color-black-100);
+        }
+    }
+}
+
+.link-container {
+    padding: 1rem 0.75rem;
+
+    svg {
+        fill: var(--color-white-500);
+        width: 20px;
+    }
+
+    &:hover {
+        background-color: var(--color-black-300);
+        border-radius: .5rem;
+    }
+}
+
+.section-2 {
+    grid-column-start: 2;
+    overflow-x: hidden;
+
+    /* Standard Layout */
+    header.top {
+        position: fixed;
+        width: calc(100% - 265px);
+        padding: 1.5rem 2.5rem;
+        border-bottom: 1px solid var(--color-white-100);
+    }
+
+    /* Standard Layout */
+    section.panel {
+        padding: 5.5rem 2.5rem 3rem 2.5rem;
+    }
+}
+
 
 /* Media Queries */
 @media screen and (max-width: 1400px) {
