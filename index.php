@@ -6,6 +6,8 @@ if (isset($_SESSION['Email'])) {
     $url = './accounts/profile.php';
 }
 
+$_SESSION['attempt'] = 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
