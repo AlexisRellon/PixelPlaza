@@ -221,7 +221,8 @@
                 z-index: 2;
             }
 
-            & input[type="button"] {
+            & input[type="button"],
+            .add-cart {
                 background-color: var(--color-white-500);
                 padding: 0.25rem 1rem;
                 margin: 0.5rem 0 0 0;
@@ -233,7 +234,8 @@
                 cursor: pointer;
                 transition: all 0.3s var(--transition-quick);
 
-                &:hover {
+                &:hover,
+                & .add-cart:hover {
                     color: var(--color-white);
                     background-color: var(--color-secondary);
                 }
@@ -304,9 +306,70 @@
 }
 
 .hero-section {
-    background-color: var(--color-primary);
+    background-image: url('../img/assets/hero-image.webp');
     padding: 2rem 0;
-    height: calc(100dvh - 88px);
+    height: calc(100vh - 88px);
+
+    /* Add parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    image-rendering: optimizeQuality;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-left: 5rem;
+        height: calc(25% + 2rem);
+
+        h1,
+        h3 {
+            color: var(--color-white-500);
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 800;
+        }
+
+        .hero-button {
+            background-color: var(--color-primary);
+            padding: 1rem 1.5rem;
+            border: 0;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            color: var(--color-white-500);
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: var(--color-secondary);
+            }
+        }
+        opacity: 0;
+        transform: translateY(2rem);
+        
+        /* Scroll animation on hero-section*/
+        animation: scrollReveal 1s ease-in-out forwards;
+        animation-range: 0 50%;
+
+    }
+}
+
+@keyframes scrollReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .lists {
@@ -1085,8 +1148,14 @@
     align-items: center;
     position: relative;
 
-    .eye { position: absolute; }
-    .eye-slash { position: absolute; display: none; }
+    .eye {
+        position: absolute;
+    }
+
+    .eye-slash {
+        position: absolute;
+        display: none;
+    }
 
     input[type="checkbox"]:checked~.eye {
         display: none;

@@ -88,7 +88,7 @@ $_SESSION['attempt'] = 0;
                     <div class="body grid grid-cols-5">
                         <a href="./collections/deals.php">Sales</a>
                         <!-- dropdown card template -->
-                        <?php include 'php/generator/generate-dd_cards.php'; ?>
+                        <?php include './php/generator/generate-dd_cards.php'; ?>
                     </div>
                 </div>
 
@@ -132,7 +132,11 @@ $_SESSION['attempt'] = 0;
     </header>
 
     <div class="hero-section">
-
+        <div class="hero-content">
+            <h1 class="text-center text-uppercase font-extrabold">Welcome to Pixel Plaza</h1>
+            <h3 class="text-center font-medium color-black-500">The best place to buy computer peripherals.</h3>
+            <a href="./collections/all.php" class="hero-button font-bold" style="width: fit-content;">Shop Now</a>
+        </div>
     </div>
 
     <section class="container-fluid first">
@@ -244,12 +248,6 @@ $_SESSION['attempt'] = 0;
         <div class="browse-products grid grid-rows-3 gap-5 align-items-center justify-items-center">
             <h1 class="m-5 text-center text-uppercase font-extrabold" style="color: var(--color-secondary);">Browse Products</h1>
 
-            <div class="tabs flex gap-20 text-uppercase font-bold align-items-center">
-                <a href="#new" class="link">New Arrivals</a>
-                <a href="#sale" class="link">Best Sellers</a>
-                <a href="#recommended" class="link">Recommended Products</a>
-            </div>
-
             <div class="products-card grid gap-1">
 
                 <!-- Card template -->
@@ -257,7 +255,7 @@ $_SESSION['attempt'] = 0;
 
             </div>
 
-            <a href="#" class="a-btn font-bold" style="width: fit-content;">View All Products</a>
+            <a href="./collections/all.php" class="a-btn font-bold" style="width: fit-content;">View All Products</a>
         </div>
     </section>
 
@@ -322,10 +320,11 @@ $_SESSION['attempt'] = 0;
                 </div>
                 <div class="products flex flex-column gap-3">
                     <h6 class="font-bold">Products</h6>
-                    <a href="#" class="link">Keyboards</a>
-                    <a href="#" class="link">Mouse</a>
-                    <a href="#" class="link">Headsets</a>
-                    <a href="#" class="link">Switch</a>
+                    <a href="./collections/all.php" class="link">all</a>
+                    <a href="./collections/keyboards.php" class="link">Keyboards</a>
+                    <a href="./collections/mouse.php" class="link">Mouse</a>
+                    <a href="./collections/headsets.php" class="link">Headsets</a>
+                    <a href="./collections/switch.php" class="link">Switch</a>
                 </div>
                 <div class="online-store flex flex-column gap-3">
                     <h6 class="font-bold">Online Stores</h6>

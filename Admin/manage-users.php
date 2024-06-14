@@ -51,7 +51,7 @@ HTML;
         <section>
             <div class="card orders-table flex-column">
                 <div class="card-title flex justify-space-between">
-                    <h3>Products</h3>
+                    <h3>Users List</h3>
                 </div>
                 <div class="card-body">
                     <table>

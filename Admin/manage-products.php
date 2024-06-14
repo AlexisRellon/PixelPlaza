@@ -317,6 +317,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
     $stmt->bind_param("ssddiissi", $productName, $productDesc, $productPrice, $productSalePrice, $productStock, $productCategory, $productBrand, $targetFile, $productID);
 
     if ($stmt->execute()) {
+        move_uploaded_file($_FILES['productImage']['tmp_name'], $targetFile);
         $_SESSION['Success Message'] = 'Product updated successfully';
         header('Location: ' . $_SERVER['PHP_SELF'] . '?page=manage-products');
     } else {
@@ -367,6 +368,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save-addBtn'])) {
     $stmt->bind_param("ssddiiss", $productName, $productDesc, $productPrice, $productSalePrice, $productStock, $productCategory, $productBrand, $targetFile);
 
     if ($stmt->execute()) {
+        move_uploaded_file($_FILES['productImage']['tmp_name'], $targetFile);
         $_SESSION['Success Message'] = 'Product added successfully';
         header('Location: ' . $_SERVER['PHP_SELF'] . '?page=manage-products');
     } else {

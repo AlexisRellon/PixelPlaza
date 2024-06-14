@@ -23,6 +23,13 @@
     --color-white-200: #dee2e6;
     --color-white-100: #ced4da;
 
+    /* Gray shades */
+    --color-gray-500: #6B7280;
+    --color-gray-400: #9CA3AF;
+    --color-gray-300: #D1D5DB;
+    --color-gray-200: #E5E7EB;
+    --color-gray-100: #F3F4F6;
+
     /* Alert, Warning, Information, Success, Danger colors*/
     --color-alert: #f6e05e; --color-alert-background: #fff9db;
     --color-warning: #f6ad55; --color-warning-background: #fff4e6;

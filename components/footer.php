@@ -31,10 +31,11 @@ echo <<<HTML
                 </div>
                 <div class="products flex flex-column gap-3">
                     <h6 class="font-bold">Products</h6>
-                    <a href="#" class="link">Keyboards</a>
-                    <a href="#" class="link">Mouse</a>
-                    <a href="#" class="link">Headsets</a>
-                    <a href="#" class="link">Switch</a>
+                    <a href="../collections/all.php" class="link">all</a>
+                    <a href="../collections/keyboards.php" class="link">Keyboards</a>
+                    <a href="../collections/mouse.php" class="link">Mouse</a>
+                    <a href="../collections/headsets.php" class="link">Headsets</a>
+                    <a href="../collections/switch.php" class="link">Switch</a>
                 </div>
                 <div class="online-store flex flex-column gap-3">
                     <h6 class="font-bold">Online Stores</h6>
