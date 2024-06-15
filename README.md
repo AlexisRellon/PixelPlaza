@@ -27,7 +27,7 @@ To get started with PixelPlaza, follow these steps:
 
 1. Clone the repository to your local machine:
 
-git clone https://github.com/your-username/PixelPlaza.git
+git clone https://github.com/AlexisRellon/PixelPlaza.git
 
 2. Import the provided SQL database file (`pixelplay.sql`) into your MySQL database management tool.
 
