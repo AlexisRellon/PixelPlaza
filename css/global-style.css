@@ -10,6 +10,8 @@
  */
 @import url('../css/root-style.css');
 
+/* Style for cookie banner */
+
 .cookie-banner {
     background-color: var(--color-tertiary);
     gap: 1rem;
